@@ -1,3 +1,5 @@
+import logo from '../../assets/logo.svg';
+
 function Header() {
   return (
     <header>
@@ -5,7 +7,7 @@ function Header() {
         <h1 className="logo">
           <a href="#">
             <figure>
-              <img src="" alt="단픽" />
+              <img src={logo} alt="단픽" />
             </figure>
             <strong>단픽</strong>
           </a>
