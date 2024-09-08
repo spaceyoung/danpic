@@ -1,8 +1,9 @@
-import { css } from '@emotion/react';
-import colorSystem from '../../styles/color';
+import { useTheme, css } from '@emotion/react';
 import logo from '../../assets/logo.svg';
 
 function Logo() {
+  const theme = useTheme();
+
   return (
     <h1>
       <a
@@ -24,9 +25,8 @@ function Logo() {
         </figure>
         <strong
           css={css`
-            font-weight: 800;
-            font-size: 24px;
-            color: ${colorSystem.primary600};
+            color: ${theme.color.text.logo};
+            ${theme.typograhpy.logo}
           `}
         >
           단픽

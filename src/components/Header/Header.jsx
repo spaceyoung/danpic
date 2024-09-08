@@ -1,14 +1,17 @@
-import { css } from '@emotion/react';
+import { useTheme, css } from '@emotion/react';
 import Logo from './Logo';
 import ThemeToggleSwitch from './ThemeToggleSwitch';
 
 function Header() {
+  const theme = useTheme();
+
   return (
     <header
       css={css`
         width: 100%;
         height: 72px;
         padding: 0 80px;
+        background-color: ${theme.color.background.default};
         position: sticky;
         left: 0;
         top: 0;

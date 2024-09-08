@@ -1,11 +1,11 @@
-import { css } from '@emotion/react';
+import { useTheme, css } from '@emotion/react';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import { useThemeMode, useSetThemeMode } from '../../contexts/ThemeContext';
-import colorSystem from '../../styles/color';
 
 function ThemeToggleSwitch() {
   const themeMode = useThemeMode();
   const setThemeMode = useSetThemeMode();
+  const theme = useTheme();
 
   const handleThemeToggleSwitch = () => {
     if (themeMode === 'light')
@@ -37,7 +37,7 @@ function ThemeToggleSwitch() {
           width: 100%;
           height: 100%;
           border-radius: 14px;
-          background-color: ${colorSystem.grayscale200};
+          background-color: ${theme.color.background.toggleSwitch};
           position: absolute;
           left: 0;
           top: 0;
@@ -47,21 +47,32 @@ function ThemeToggleSwitch() {
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background-color: white;
+            background-color: ${theme.color.background.default};
             position: absolute;
-            left: 4px;
+            left: ${themeMode === 'light' ? '4px' : '28px'};
             top: 4px;
           }
         `}
       >
-        <MdLightMode
-          css={css`
-            font-size: 16px;
-            position: absolute;
-            left: 6px;
-            top: 6px;
-          `}
-        />
+        {themeMode === 'light' ? (
+          <MdLightMode
+            css={css`
+              color: ${theme.color.emphasis.primary};
+              position: absolute;
+              left: 6px;
+              top: 6px;
+            `}
+          />
+        ) : (
+          <MdDarkMode
+            css={css`
+              color: ${theme.color.emphasis.primary};
+              position: absolute;
+              left: 30px;
+              top: 6px;
+            `}
+          />
+        )}
       </span>
     </label>
   );
