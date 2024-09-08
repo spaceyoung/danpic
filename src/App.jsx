@@ -1,11 +1,12 @@
 import { Global } from '@emotion/react';
+import Header from './components/Header/Header';
 import globalStyle from './styles/global';
 
 function App() {
   return (
     <>
       <Global styles={globalStyle} />
-      <h1>단픽 Danpic</h1>
+      <Header />
     </>
   );
 }
