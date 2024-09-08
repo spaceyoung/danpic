@@ -7,6 +7,14 @@ function BannerHeader() {
   const themeMode = useThemeMode();
   const theme = useTheme();
 
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = ('0' + (today.getMonth() + 1)).slice(-2);
+  const day = ('0' + today.getDate()).slice(-2);
+  const week = ['일', '월', '화', '수', '목', '금', '토'];
+  const dayOfWeek = week[today.getDay()];
+  const formattedDate = `${year}-${month}-${day} (${dayOfWeek})`;
+
   return (
     <div
       css={css`
@@ -20,7 +28,7 @@ function BannerHeader() {
           color: ${theme.color.text.label};
         `}
       >
-        오늘의 날짜
+        {formattedDate}
       </span>
       <div
         css={css`
