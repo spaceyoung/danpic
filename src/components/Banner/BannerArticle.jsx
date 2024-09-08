@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTheme, css } from '@emotion/react';
+import LoadingMessage from '../common/Loading/LoadingMessage';
+import ErrorMessage from '../common/Error/ErrorMessage';
 import TranslateButton from '../common/Button/TranslateButton';
 import ArticleLinkButton from '../common/Button/ArticleLinkButton';
 
@@ -31,29 +33,8 @@ function BannerArticle() {
     fetchArticle();
   }, []);
 
-  if (isLoading)
-    return (
-      <p
-        css={css`
-          margin: auto;
-          text-align: center;
-        `}
-      >
-        화제가 된 단픽 스크랩하는 중... 📰
-      </p>
-    );
-
-  if (error)
-    return (
-      <p
-        css={css`
-          margin: auto;
-          text-align: center;
-        `}
-      >
-        단픽을 스크랩하는 중 오류가 발생했어요😢
-      </p>
-    );
+  if (isLoading) return <LoadingMessage />;
+  if (error) return <ErrorMessage />;
 
   return (
     <>
