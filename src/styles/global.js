@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import reset from 'styled-reset';
 
-const globalStyle = css`
+const globalStyle = (theme) => css`
   ${reset}
 
   @font-face {
@@ -56,10 +56,10 @@ const globalStyle = css`
 
   body {
     min-width: 360px;
-    font-weight: 400;
-    line-height: 1.4;
-    font-family: Pretendard, Roboto, '돋움', dotum, AppleGothic, sans-serif;
-    letter-spacing: -0.5px;
+    color: ${theme.color.text.body};
+    background-color: ${theme.color.background.default};
+    transition: background-color 0.2s;
+    ${theme.typograhpy.body};
   }
 
   a {
