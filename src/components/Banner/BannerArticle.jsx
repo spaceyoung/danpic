@@ -5,12 +5,15 @@ import TranslateButton from '../common/Button/TranslateButton';
 import ArticleLinkButton from '../common/Button/ArticleLinkButton';
 
 function BannerArticle() {
+  const [isLoading, setIsloading] = useState(false);
+  const [error, setError] = useState(null);
   const [article, setArticle] = useState(null);
 
   const theme = useTheme();
 
   useEffect(() => {
     const fetchArticle = async () => {
+      setIsloading(true);
       try {
         const response = await axios.get(
           `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${import.meta.env.VITE_NYT_API_KEY}`
@@ -20,26 +23,40 @@ function BannerArticle() {
         );
         setArticle(response.data.results[randomNum]);
       } catch (error) {
-        console.log(error);
+        console.log(`기사 조회 중 오류 발생 | ${error}`);
+        setError(error);
       }
+      setIsloading(false);
     };
     fetchArticle();
   }, []);
 
+  if (isLoading)
+    return (
+      <p
+        css={css`
+          margin: auto;
+          text-align: center;
+        `}
+      >
+        화제가 된 단픽 스크랩하는 중... 📰
+      </p>
+    );
+
+  if (error)
+    return (
+      <p
+        css={css`
+          margin: auto;
+          text-align: center;
+        `}
+      >
+        단픽을 스크랩하는 중 오류가 발생했어요😢
+      </p>
+    );
+
   return (
-    <div
-      css={css`
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 24px;
-        min-height: 200px;
-        padding: 20px 32px;
-        border-radius: 8px;
-        background-color: ${theme.color.background.banner};
-        box-shadow: 3px 3px 10px 3px ${theme.color.shadow.default};
-      `}
-    >
+    <>
       <div>
         <span
           css={css`
@@ -71,7 +88,7 @@ function BannerArticle() {
         <TranslateButton />
         <ArticleLinkButton articleLink={article && article.url} />
       </div>
-    </div>
+    </>
   );
 }
 
