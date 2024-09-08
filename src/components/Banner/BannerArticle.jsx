@@ -1,9 +1,30 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useTheme, css } from '@emotion/react';
 import TranslateButton from '../common/Button/TranslateButton';
 import ArticleLinkButton from '../common/Button/ArticleLinkButton';
 
 function BannerArticle() {
+  const [article, setArticle] = useState(null);
+
   const theme = useTheme();
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${import.meta.env.VITE_NYT_API_KEY}`
+        );
+        const randomNum = Math.floor(
+          Math.random() * response.data.results.length
+        );
+        setArticle(response.data.results[randomNum]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchArticle();
+  }, []);
 
   return (
     <div
@@ -27,7 +48,7 @@ function BannerArticle() {
             ${theme.typograhpy.bannerSection}
           `}
         >
-          기사 섹션
+          {article && article.section}
         </span>
         <p
           css={css`
@@ -35,7 +56,7 @@ function BannerArticle() {
             color: ${theme.color.text.title};
           `}
         >
-          기사 제목
+          {article && article.title}
         </p>
       </div>
       <div
@@ -48,7 +69,7 @@ function BannerArticle() {
         `}
       >
         <TranslateButton />
-        <ArticleLinkButton />
+        <ArticleLinkButton articleLink={article && article.url} />
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import { MdOpenInNew } from 'react-icons/md';
 
-function ArticleLinkButton() {
+function ArticleLinkButton({ articleLink }) {
   return (
     <a
-      href="#"
+      href={articleLink}
       target="_blank"
       rel="noopener noreferrer"
       css={css`
