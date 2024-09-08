@@ -1,8 +1,19 @@
 import { css } from '@emotion/react';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
+import { useThemeMode, useSetThemeMode } from '../../contexts/ThemeContext';
 import colorSystem from '../../styles/color';
 
 function ThemeToggleSwitch() {
+  const themeMode = useThemeMode();
+  const setThemeMode = useSetThemeMode();
+
+  const handleThemeToggleSwitch = () => {
+    if (themeMode === 'light')
+      setThemeMode((prevThemeMode) => (prevThemeMode = 'dark'));
+    else if (themeMode === 'dark')
+      setThemeMode((prevThemeMode) => (prevThemeMode = 'light'));
+  };
+
   return (
     <label
       css={css`
@@ -13,6 +24,8 @@ function ThemeToggleSwitch() {
     >
       <input
         type="checkbox"
+        checked={themeMode === 'light' ? false : true}
+        onChange={() => handleThemeToggleSwitch()}
         css={css`
           width: 1px;
           height: 1px;
