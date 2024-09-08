@@ -1,4 +1,5 @@
 const colorSystem = {
+  grayscale000: '#FFFFFF',
   grayscale050: '#F1F3F3',
   grayscale100: '#E4E6E7',
   grayscale200: '#C8CDD0',
@@ -20,6 +21,9 @@ const colorSystem = {
   primary700: '#1B3F7E',
   primary800: '#122A54',
   primary900: '#09152A',
+
+  shadow100: 'rgba(24, 26, 27, 0.1)',
+  shadow200: 'rgba(24, 26, 27, 0.2)',
 };
 
 export default colorSystem;
