@@ -1,7 +1,10 @@
 import { useTheme, css } from '@emotion/react';
-import logo from '../../assets/logo.svg';
+import { useThemeMode } from '../../contexts/ThemeContext';
+import logoLight from '../../assets/logo-light.svg';
+import logoDark from '../../assets/logo-dark.svg';
 
 function Logo() {
+  const themeMode = useThemeMode();
   const theme = useTheme();
 
   return (
@@ -16,7 +19,7 @@ function Logo() {
       >
         <figure>
           <img
-            src={logo}
+            src={themeMode === 'light' ? logoLight : logoDark}
             alt="단픽"
             css={css`
               width: 22px;
