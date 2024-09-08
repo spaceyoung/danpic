@@ -53,6 +53,9 @@ export const lightThemeColor = {
   shadow: {
     default: colorSystem.shadow100,
   },
+  button: {
+    banner: colorSystem.blue600,
+  },
 };
 
 // 다크 모드
@@ -81,5 +84,8 @@ export const darkThemeColor = {
   },
   shadow: {
     default: colorSystem.shadow200,
+  },
+  button: {
+    banner: colorSystem.blue050,
   },
 };
