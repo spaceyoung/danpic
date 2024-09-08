@@ -55,25 +55,24 @@ function ThemeToggleSwitch() {
           }
         `}
       >
-        {themeMode === 'light' ? (
-          <MdLightMode
-            css={css`
-              color: ${theme.color.emphasis.primary};
-              position: absolute;
-              left: 6px;
-              top: 6px;
-            `}
-          />
-        ) : (
-          <MdDarkMode
-            css={css`
-              color: ${theme.color.emphasis.primary};
-              position: absolute;
-              left: 30px;
-              top: 6px;
-            `}
-          />
-        )}
+        <MdLightMode
+          css={css`
+            position: absolute;
+            left: ${themeMode === 'light' ? '6px' : '30px'};
+            top: 6px;
+            opacity: ${themeMode === 'light' ? 1 : 0};
+            transition: all 0.2s;
+          `}
+        />
+        <MdDarkMode
+          css={css`
+            position: absolute;
+            left: ${themeMode === 'light' ? '6px' : '30px'};
+            top: 6px;
+            opacity: ${themeMode === 'light' ? 0 : 1};
+            transition: all 0.2s;
+          `}
+        />
       </span>
     </label>
   );
