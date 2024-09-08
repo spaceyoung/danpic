@@ -1,4 +1,6 @@
 import { useState, createContext, useContext } from 'react';
+import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+import { lightTheme, darkTheme } from '../styles/theme';
 
 const ThemeModeContext = createContext();
 const SetThemeModeContext = createContext();
@@ -9,7 +11,11 @@ export const ThemeProvider = ({ children }) => {
   return (
     <ThemeModeContext.Provider value={themeMode}>
       <SetThemeModeContext.Provider value={setThemeMode}>
-        {children}
+        <EmotionThemeProvider
+          theme={themeMode === 'light' ? lightTheme : darkTheme}
+        >
+          {children}
+        </EmotionThemeProvider>
       </SetThemeModeContext.Provider>
     </ThemeModeContext.Provider>
   );
