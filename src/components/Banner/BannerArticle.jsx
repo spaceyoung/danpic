@@ -1,5 +1,6 @@
 import { useTheme, css } from '@emotion/react';
-import { MdGTranslate, MdOpenInNew } from 'react-icons/md';
+import TranslateButton from '../common/Button/TranslateButton';
+import ArticleLinkButton from '../common/Button/ArticleLinkButton';
 
 function BannerArticle() {
   const theme = useTheme();
@@ -46,31 +47,8 @@ function BannerArticle() {
           color: ${theme.color.button.banner};
         `}
       >
-        <button
-          css={css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-          `}
-        >
-          <MdGTranslate />
-          번역하기
-        </button>
-        <a
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          css={css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-          `}
-        >
-          <MdOpenInNew />
-          기사 보러가기
-        </a>
+        <TranslateButton />
+        <ArticleLinkButton />
       </div>
     </div>
   );
