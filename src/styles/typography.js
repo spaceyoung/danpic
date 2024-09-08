@@ -21,6 +21,10 @@ const typography = {
   },
 
   // 배너
+  bannerSection: {
+    fontWeight: '400',
+    fontSize: '15px',
+  },
   bannerTitle: {
     fontWeight: '600',
     fontSize: '22px',
