@@ -51,6 +51,7 @@ function ThemeToggleSwitch() {
             position: absolute;
             left: ${themeMode === 'light' ? '4px' : '28px'};
             top: 4px;
+            transition: all 0.2s;
           }
         `}
       >

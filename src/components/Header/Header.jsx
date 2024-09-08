@@ -15,6 +15,7 @@ function Header() {
         position: sticky;
         left: 0;
         top: 0;
+        transition: all 0.2s;
       `}
     >
       <div
