@@ -1,7 +1,7 @@
 import { useTheme, css } from '@emotion/react';
 import TranslateButton from '../common/Button/TranslateButton';
 
-function Article() {
+function Article({ publishDate, headline }) {
   const theme = useTheme();
 
   return (
@@ -26,14 +26,14 @@ function Article() {
             ${theme.typography.articleDate}
           `}
         >
-          기사 발행일
+          {publishDate}
         </span>
         <p
           css={css`
             ${theme.typography.articleTitle}
           `}
         >
-          기사 제목
+          {headline}
         </p>
       </div>
       <div
