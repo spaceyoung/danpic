@@ -1,4 +1,5 @@
 import { useTheme, css } from '@emotion/react';
+import TranslationDivider from './TranslationDivider';
 
 function Translation({
   isTranslated,
@@ -11,15 +12,7 @@ function Translation({
   if (isTranslateLoading)
     return (
       <>
-        <hr
-          css={css`
-            width: 40%;
-            height: 1px;
-            margin: 20px 0 12px;
-            border: 0;
-            background-color: ${theme.color.border.banner};
-          `}
-        />
+        <TranslationDivider />
         <p
           css={css`
             ${theme.typograhpy.bannerTranslation}
@@ -33,15 +26,7 @@ function Translation({
   if (translateError)
     return (
       <>
-        <hr
-          css={css`
-            width: 40%;
-            height: 1px;
-            margin: 20px 0 12px;
-            border: 0;
-            background-color: ${theme.color.border.banner};
-          `}
-        />
+        <TranslationDivider />
         <p
           css={css`
             ${theme.typograhpy.bannerTranslation}
@@ -56,15 +41,7 @@ function Translation({
     <>
       {isTranslated && (
         <>
-          <hr
-            css={css`
-              width: 40%;
-              height: 1px;
-              margin: 20px 0 12px;
-              border: 0;
-              background-color: ${theme.color.border.banner};
-            `}
-          />
+          <TranslationDivider />
           <p
             css={css`
               ${theme.typograhpy.bannerTranslation}
