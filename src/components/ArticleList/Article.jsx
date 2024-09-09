@@ -4,6 +4,8 @@ import TranslateButton from '../common/Button/TranslateButton';
 function Article({ publishDate, headline }) {
   const theme = useTheme();
 
+  const formattedPublishDate = publishDate.substring(0, 10);
+
   return (
     <article
       css={css`
@@ -26,7 +28,7 @@ function Article({ publishDate, headline }) {
             ${theme.typography.articleDate}
           `}
         >
-          {publishDate}
+          {formattedPublishDate}
         </span>
         <p
           css={css`
