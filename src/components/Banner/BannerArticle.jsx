@@ -12,6 +12,7 @@ function BannerArticle() {
   const [fetchError, setFetchError] = useState(null);
   const [article, setArticle] = useState(null);
 
+  const [isTranslated, setIsTranslated] = useState(false);
   const [isTranslateLoading, setIsTranslateLoading] = useState(false);
   const [translateError, setTranslateError] = useState(null);
   const [translationText, setTranslationText] = useState(null);
@@ -19,18 +20,24 @@ function BannerArticle() {
   const theme = useTheme();
 
   const translate = async () => {
-    setIsTranslateLoading(true);
-    try {
-      const response = await axios.post(
-        `https://translation.googleapis.com/language/translate/v2?&key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
-        { q: article.title, target: 'ko' }
-      );
-      setTranslationText(response.data.data.translations[0].translatedText);
-    } catch (error) {
-      console.log(`기사 번역 중 오류 발생 | ${error}`);
-      setTranslateError(error);
+    if (!isTranslated) {
+      setIsTranslateLoading(true);
+      try {
+        const response = await axios.post(
+          `https://translation.googleapis.com/language/translate/v2?&key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
+          { q: article.title, target: 'ko' }
+        );
+        setTranslationText(response.data.data.translations[0].translatedText);
+        setIsTranslated(!isTranslated);
+      } catch (error) {
+        console.log(`기사 번역 중 오류 발생 | ${error}`);
+        setTranslateError(error);
+      }
+      setIsTranslateLoading(false);
+    } else {
+      // 이미 저장된 번역문이 있는 경우 API 재요청을 방지하고 토글 기능만 실행
+      setIsTranslated(!isTranslated);
     }
-    setIsTranslateLoading(false);
   };
 
   useEffect(() => {
@@ -77,6 +84,7 @@ function BannerArticle() {
           {article && article.title}
         </p>
         <Translation
+          isTranslated={isTranslated}
           isTranslateLoading={isTranslateLoading}
           translateError={translateError}
           translationText={translationText}
@@ -91,7 +99,7 @@ function BannerArticle() {
           color: ${theme.color.button.banner};
         `}
       >
-        <TranslateButton translate={translate} />
+        <TranslateButton isTranslated={isTranslated} translate={translate} />
         <ArticleLinkButton articleLink={article && article.url} />
       </div>
     </>

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { MdGTranslate } from 'react-icons/md';
 
-function TranslateButton({ translate }) {
+function TranslateButton({ isTranslated, translate }) {
   return (
     <button
       onClick={() => translate()}
@@ -13,7 +13,7 @@ function TranslateButton({ translate }) {
       `}
     >
       <MdGTranslate />
-      번역하기
+      {isTranslated ? '번역 숨기기' : '번역하기'}
     </button>
   );
 }

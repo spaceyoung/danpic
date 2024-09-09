@@ -1,4 +1,9 @@
-function Translation({ isTranslateLoading, translateError, translationText }) {
+function Translation({
+  isTranslated,
+  isTranslateLoading,
+  translateError,
+  translationText,
+}) {
   if (isTranslateLoading)
     return (
       <>
@@ -17,7 +22,7 @@ function Translation({ isTranslateLoading, translateError, translationText }) {
 
   return (
     <>
-      {translationText && (
+      {isTranslated && (
         <>
           <hr />
           <p>{translationText}</p>
