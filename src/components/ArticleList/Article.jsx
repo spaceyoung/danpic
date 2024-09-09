@@ -45,6 +45,7 @@ function Article({ publishDate, headline }) {
         min-height: 120px;
         padding: 16px 20px 14px;
         border-radius: 8px;
+        background-color: ${theme.color.background.article};
         box-shadow: 3px 3px 10px 3px ${theme.color.shadow.default};
       `}
     >
