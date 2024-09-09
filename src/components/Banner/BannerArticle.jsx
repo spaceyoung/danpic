@@ -66,7 +66,7 @@ function BannerArticle() {
     fetchArticle();
   }, []);
 
-  if (isFetchLoading) return <LoadingMessage />;
+  if (isFetchLoading) return <LoadingMessage type={'화제가 된'} />;
   if (fetchError) return <ErrorMessage />;
 
   return (

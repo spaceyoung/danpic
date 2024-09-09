@@ -1,7 +1,7 @@
 import { useTheme, css } from '@emotion/react';
 import BeatLoader from 'react-spinners/BeatLoader';
 
-function LoadingMessage() {
+function LoadingMessage({ type }) {
   const theme = useTheme();
 
   return (
@@ -17,7 +17,7 @@ function LoadingMessage() {
         speedMultiplier={0.5}
         color={theme.color.emphasis.primary}
       />
-      화제가 된 단픽 스크랩하는 중... 📰
+      {type} 단픽 스크랩하는 중... 📰
     </div>
   );
 }

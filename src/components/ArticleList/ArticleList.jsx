@@ -27,7 +27,7 @@ function ArticleList() {
     fetchArticleList();
   }, []);
 
-  if (isFetchLoading) return <LoadingMessage />;
+  if (isFetchLoading) return <LoadingMessage type={'유용한'} />;
   if (fetchError) return <ErrorMessage />;
 
   return (
