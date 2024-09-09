@@ -7,15 +7,34 @@ import TranslateButton from '../common/Button/TranslateButton';
 import ArticleLinkButton from '../common/Button/ArticleLinkButton';
 
 function BannerArticle() {
-  const [isLoading, setIsloading] = useState(false);
-  const [error, setError] = useState(null);
+  const [isFetchLoading, setIsFetchLoading] = useState(false);
+  const [fetchError, setFetchError] = useState(null);
   const [article, setArticle] = useState(null);
+
+  const [isTranslateLoading, setIsTranslateLoading] = useState(false);
+  const [translateError, setTranslateError] = useState(null);
+  const [translationText, setTranslationText] = useState(null);
 
   const theme = useTheme();
 
+  const translate = async () => {
+    setIsTranslateLoading(true);
+    try {
+      const response = await axios.post(
+        `https://translation.googleapis.com/language/translate/v2?&key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
+        { q: article.title, target: 'ko' }
+      );
+      setTranslationText(response.data.data.translations[0].translatedText);
+    } catch (error) {
+      console.log(`기사 번역 중 오류 발생 | ${error}`);
+      setTranslateError(error);
+    }
+    setIsTranslateLoading(false);
+  };
+
   useEffect(() => {
     const fetchArticle = async () => {
-      setIsloading(true);
+      setIsFetchLoading(true);
       try {
         const response = await axios.get(
           `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${import.meta.env.VITE_NYT_API_KEY}`
@@ -26,15 +45,15 @@ function BannerArticle() {
         setArticle(response.data.results[randomNum]);
       } catch (error) {
         console.log(`기사 조회 중 오류 발생 | ${error}`);
-        setError(error);
+        setFetchError(error);
       }
-      setIsloading(false);
+      setIsFetchLoading(false);
     };
     fetchArticle();
   }, []);
 
-  if (isLoading) return <LoadingMessage />;
-  if (error) return <ErrorMessage />;
+  if (isFetchLoading) return <LoadingMessage />;
+  if (fetchError) return <ErrorMessage />;
 
   return (
     <>
@@ -56,6 +75,12 @@ function BannerArticle() {
         >
           {article && article.title}
         </p>
+        {translationText && (
+          <>
+            <hr />
+            <p>{translationText}</p>
+          </>
+        )}
       </div>
       <div
         css={css`
@@ -66,7 +91,7 @@ function BannerArticle() {
           color: ${theme.color.button.banner};
         `}
       >
-        <TranslateButton />
+        <TranslateButton translate={translate} />
         <ArticleLinkButton articleLink={article && article.url} />
       </div>
     </>
