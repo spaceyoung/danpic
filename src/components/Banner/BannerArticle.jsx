@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useTheme, css } from '@emotion/react';
 import LoadingMessage from '../common/Loading/LoadingMessage';
 import ErrorMessage from '../common/Error/ErrorMessage';
+import Translation from '../common/Translation/Translation';
 import TranslateButton from '../common/Button/TranslateButton';
 import ArticleLinkButton from '../common/Button/ArticleLinkButton';
 
@@ -75,12 +76,11 @@ function BannerArticle() {
         >
           {article && article.title}
         </p>
-        {translationText && (
-          <>
-            <hr />
-            <p>{translationText}</p>
-          </>
-        )}
+        <Translation
+          isTranslateLoading={isTranslateLoading}
+          translateError={translateError}
+          translationText={translationText}
+        />
       </div>
       <div
         css={css`
