@@ -1,4 +1,3 @@
-import { useTheme, css } from '@emotion/react';
 import TranslationDivider from './TranslationDivider';
 
 function Translation({
@@ -7,19 +6,11 @@ function Translation({
   translateError,
   translationText,
 }) {
-  const theme = useTheme();
-
   if (isTranslateLoading)
     return (
       <>
         <TranslationDivider />
-        <p
-          css={css`
-            ${theme.typograhpy.bannerTranslation}
-          `}
-        >
-          번역 중...
-        </p>
+        <p>번역 중...</p>
       </>
     );
 
@@ -27,13 +18,7 @@ function Translation({
     return (
       <>
         <TranslationDivider />
-        <p
-          css={css`
-            ${theme.typograhpy.bannerTranslation}
-          `}
-        >
-          번역 중 오류가 발생했어요😢
-        </p>
+        <p>번역 중 오류가 발생했어요😢</p>
       </>
     );
 
@@ -42,13 +27,7 @@ function Translation({
       {isTranslated && (
         <>
           <TranslationDivider />
-          <p
-            css={css`
-              ${theme.typograhpy.bannerTranslation}
-            `}
-          >
-            {translationText}
-          </p>
+          <p>{translationText}</p>
         </>
       )}
     </>
