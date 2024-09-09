@@ -76,14 +76,14 @@ function BannerArticle() {
           css={css`
             display: block;
             margin-bottom: 8px;
-            ${theme.typograhpy.bannerSection}
+            ${theme.typography.bannerSection}
           `}
         >
           {article && article.section}
         </span>
         <p
           css={css`
-            ${theme.typograhpy.bannerTitle}
+            ${theme.typography.bannerTitle}
             color: ${theme.color.text.title};
           `}
         >
@@ -98,7 +98,7 @@ function BannerArticle() {
       </div>
       <div
         css={css`
-          ${theme.typograhpy.bannerButton}
+          ${theme.typography.bannerButton}
           display: flex;
           align-self: flex-end;
           gap: 24px;

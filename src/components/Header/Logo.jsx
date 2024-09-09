@@ -29,7 +29,7 @@ function Logo() {
         <strong
           css={css`
             color: ${theme.color.text.logo};
-            ${theme.typograhpy.logo}
+            ${theme.typography.logo}
           `}
         >
           단픽
