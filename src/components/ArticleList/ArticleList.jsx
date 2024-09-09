@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Masonry from 'react-masonry-css';
 import { css } from '@emotion/react';
 import LoadingMessage from '../common/Loading/LoadingMessage';
 import ErrorMessage from '../common/Error/ErrorMessage';
@@ -35,19 +36,29 @@ function ArticleList() {
       {articleList && (
         <div
           css={css`
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
             padding: 24px 0;
           `}
         >
-          {articleList.map((article) => (
-            <Article
-              key={article._id}
-              publishDate={article.pub_date}
-              headline={article.headline.main}
-            />
-          ))}
+          <Masonry
+            breakpointCols={2}
+            css={css`
+              display: flex;
+              > *:not(:last-child) {
+                margin-right: 24px;
+              }
+              > * > *:not(:last-child) {
+                margin-bottom: 24px;
+              }
+            `}
+          >
+            {articleList.map((article) => (
+              <Article
+                key={article._id}
+                publishDate={article.pub_date}
+                headline={article.headline.main}
+              />
+            ))}
+          </Masonry>
         </div>
       )}
     </>
