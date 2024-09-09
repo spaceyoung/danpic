@@ -21,18 +21,18 @@ const typography = {
   },
 
   // 배너
+  bannerSection: {
+    fontWeight: '400',
+    fontSize: '15px',
+  },
   bannerTitle: {
     fontWeight: '600',
     fontSize: '22px',
     lineHeight: '1.3',
   },
-  bannerTranslation: {
-    fontWeight: '400',
-    fontSize: '18px',
-  },
   bannerButton: {
     fontWeight: '500',
-    fontSize: '18px',
+    fontSize: '16px',
   },
 
   // 기사
