@@ -50,7 +50,13 @@ function BannerArticle() {
         const randomNum = Math.floor(
           Math.random() * response.data.results.length
         );
-        setArticle(response.data.results[randomNum]);
+        const article = response.data.results[randomNum];
+
+        // 기사 section 이름의 첫 글자를 대문자로 변환(us인 경우 모든 글자를 대문자로 변환)
+        article.section = article.section.replace(/(\bus\b)|(\b\w)/g, (str) =>
+          str.toUpperCase()
+        );
+        setArticle(article);
       } catch (error) {
         console.log(`기사 조회 중 오류 발생 | ${error}`);
         setFetchError(error);
