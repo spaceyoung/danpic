@@ -76,7 +76,7 @@ export const darkThemeColor = {
     default: colorSystem.grayscale800,
     toggleSwitch: colorSystem.blue300,
     banner: colorSystem.blue600,
-    article: colorSystem.blue700,
+    article: colorSystem.grayscale700,
   },
   border: {
     default: colorSystem.grayscale500,

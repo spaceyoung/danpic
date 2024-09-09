@@ -59,7 +59,7 @@ const globalStyle = (theme) => css`
     color: ${theme.color.text.body};
     background-color: ${theme.color.background.default};
     transition: background-color 0.2s;
-    ${theme.typograhpy.body};
+    ${theme.typography.body};
   }
 
   a {

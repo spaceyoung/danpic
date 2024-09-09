@@ -1,12 +1,12 @@
 import { lightThemeColor, darkThemeColor } from './color';
-import typograhpy from './typography';
+import typography from './typography';
 
 export const lightTheme = {
   color: lightThemeColor,
-  typograhpy,
+  typography,
 };
 
 export const darkTheme = {
   color: darkThemeColor,
-  typograhpy,
+  typography,
 };

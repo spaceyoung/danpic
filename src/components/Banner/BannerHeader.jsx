@@ -49,7 +49,7 @@ function BannerHeader() {
         </figure>
         <h2
           css={css`
-            ${theme.typograhpy.sectionTitle}
+            ${theme.typography.sectionTitle}
             color: ${theme.color.text.title};
           `}
         >
