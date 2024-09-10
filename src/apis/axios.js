@@ -33,6 +33,10 @@ axiosNYT.interceptors.response.use((response) => {
   // 메인 콘텐츠 기사 목록
   else if (response.data.response) {
     const articleList = response.data.response.docs;
+    // 기사 발행일을 yyyy-mm-dd 형식으로 변환
+    articleList.forEach(
+      (article) => (article.pub_date = article.pub_date.substring(0, 10))
+    );
     return articleList;
   }
 });
