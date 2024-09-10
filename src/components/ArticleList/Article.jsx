@@ -72,6 +72,9 @@ function Article({ publishDate, headline }) {
           isTranslateLoading={isTranslateLoading}
           translateError={translateError}
           translationText={translationText}
+          css={css`
+            color: ${theme.color.text.detail};
+          `}
         />
       </div>
       <div
