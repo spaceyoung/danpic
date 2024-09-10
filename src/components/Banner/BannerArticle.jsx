@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useTheme, css } from '@emotion/react';
 import useFetchData from '../../hooks/useFetchData';
+import useTranslate from '../../hooks/useTranslate';
 import { NYT_REQUEST_URL } from '../../constants/api';
 import LoadingMessage from '../common/Loading/LoadingMessage';
 import ErrorMessage from '../common/Error/ErrorMessage';
@@ -13,34 +14,15 @@ function BannerArticle() {
   const [isFetchLoading, fetchError, article] = useFetchData(
     NYT_REQUEST_URL.TOP_STORIES
   );
-
-  const [isTranslated, setIsTranslated] = useState(false);
-  const [isTranslateLoading, setIsTranslateLoading] = useState(false);
-  const [translateError, setTranslateError] = useState(null);
-  const [translationText, setTranslationText] = useState(null);
+  const [
+    isTranslated,
+    isTranslateLoading,
+    translateError,
+    translationText,
+    translate,
+  ] = useTranslate();
 
   const theme = useTheme();
-
-  const translate = async () => {
-    if (!isTranslated) {
-      setIsTranslateLoading(true);
-      try {
-        const response = await axios.post(
-          `https://translation.googleapis.com/language/translate/v2?&key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
-          { q: article.title, target: 'ko' }
-        );
-        setTranslationText(response.data.data.translations[0].translatedText);
-        setIsTranslated(!isTranslated);
-      } catch (error) {
-        console.log(`기사 번역 중 오류 발생 | ${error}`);
-        setTranslateError(error);
-      }
-      setIsTranslateLoading(false);
-    } else {
-      // 이미 저장된 번역문이 있는 경우 API 재요청을 방지하고 토글 기능만 실행
-      setIsTranslated(!isTranslated);
-    }
-  };
 
   if (isFetchLoading) return <LoadingMessage type={'화제가 된'} />;
   if (fetchError) return <ErrorMessage />;
@@ -81,7 +63,11 @@ function BannerArticle() {
           ${theme.typography.bannerButton}
         `}
       >
-        <TranslateButton isTranslated={isTranslated} translate={translate} />
+        <TranslateButton
+          headline={article && article.title}
+          isTranslated={isTranslated}
+          translate={translate}
+        />
         <ArticleLinkButton articleLink={article && article.url} />
       </div>
     </>
