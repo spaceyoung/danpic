@@ -1,11 +1,11 @@
 const sectionTabList = [
   'World',
   'Business',
-  'Politics',
-  'Lifestyle',
-  'Tech',
+  'Technology',
   'Science',
   'Health',
+  'Sports',
+  'Opinion',
 ];
 
 export default sectionTabList;

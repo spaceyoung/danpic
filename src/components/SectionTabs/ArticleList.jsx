@@ -11,7 +11,8 @@ function ArticleList() {
 
   const [isFetchLoading, fetchError, articleList] = useFetchData(
     NYT_REQUEST_URL.SEARCH,
-    activeSectionTab,
+    // activeSectionTab이 Business일 경우 해당하는 검색 쿼리를 위해 Business Day로 값을 재할당
+    activeSectionTab === 'Business' ? 'Business Day' : activeSectionTab,
     [activeSectionTab]
   );
 
