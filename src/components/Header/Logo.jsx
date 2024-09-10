@@ -28,7 +28,7 @@ function Logo() {
         </figure>
         <strong
           css={css`
-            color: ${theme.color.text.logo};
+            color: ${theme.color.emphasis.primary};
             ${theme.typography.logo}
           `}
         >
