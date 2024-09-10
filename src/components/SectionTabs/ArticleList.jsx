@@ -4,7 +4,7 @@ import { useActiveSectionTab } from '@contexts/ActiveSectionTabContext';
 import useFetchData from '@hooks/useFetchData';
 import { NYT_REQUEST_URL } from '@constants/api';
 import { LoadingMessage, ErrorMessage } from '@components/common';
-import { Article } from '@components/SectionTabs';
+import { Article, ViewMoreButton } from '@components/SectionTabs';
 
 function ArticleList() {
   const activeSectionTab = useActiveSectionTab();
@@ -47,6 +47,7 @@ function ArticleList() {
             />
           ))}
         </Masonry>
+        <ViewMoreButton />
       </div>
     </>
   );
