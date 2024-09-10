@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Masonry from 'react-masonry-css';
 import { css } from '@emotion/react';
 import { useActiveSectionTab } from '@contexts/ActiveSectionTabContext';
@@ -7,13 +8,15 @@ import { LoadingMessage, ErrorMessage } from '@components/common';
 import { Article, ViewMoreButton } from '@components/SectionTabs';
 
 function ArticleList() {
-  const activeSectionTab = useActiveSectionTab();
+  const [clickCount, setClickCount] = useState(0);
 
+  const activeSectionTab = useActiveSectionTab();
   const [isFetchLoading, fetchError, articleList] = useFetchData(
     NYT_REQUEST_URL.SEARCH,
     // activeSectionTab이 Business일 경우 해당하는 검색 쿼리를 위해 Business Day로 값을 재할당
     activeSectionTab === 'Business' ? 'Business Day' : activeSectionTab,
-    [activeSectionTab]
+    clickCount,
+    [activeSectionTab, clickCount]
   );
 
   if (isFetchLoading) return <LoadingMessage type={'유용한'} />;
@@ -48,7 +51,7 @@ function ArticleList() {
             />
           ))}
         </Masonry>
-        <ViewMoreButton />
+        <ViewMoreButton setClickCount={setClickCount} />
       </div>
     </>
   );

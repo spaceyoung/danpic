@@ -1,11 +1,12 @@
 import { useTheme, css } from '@emotion/react';
 import { MdOutlineAddCircleOutline } from 'react-icons/md';
 
-function ViewMoreButton() {
+function ViewMoreButton({ setClickCount }) {
   const theme = useTheme();
 
   return (
     <button
+      onClick={() => setClickCount((prevClickCount) => prevClickCount + 1)}
       css={css`
         display: flex;
         justify-content: center;
