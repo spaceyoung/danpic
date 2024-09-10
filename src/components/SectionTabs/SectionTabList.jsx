@@ -1,7 +1,10 @@
 import { useTheme, css } from '@emotion/react';
+import { useSetActiveSectionTab } from '@contexts/ActiveSectionTabContext';
 import sectionTabList from '@constants/sectionTabList';
 
 function SectionTabList() {
+  const setActiveSectionTab = useSetActiveSectionTab();
+
   const theme = useTheme();
 
   return (
@@ -21,6 +24,11 @@ function SectionTabList() {
           `}
         >
           <button
+            onClick={() =>
+              setActiveSectionTab(
+                (prevSectionTab) => (prevSectionTab = sectionTab)
+              )
+            }
             css={css`
               height: 48px;
               padding: 0 24px;
