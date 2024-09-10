@@ -32,7 +32,6 @@ const colorSystem = {
 // 라이트 모드
 export const lightThemeColor = {
   text: {
-    logo: colorSystem.blue600,
     title: colorSystem.grayscale800,
     body: colorSystem.grayscale700,
     detail: colorSystem.grayscale500,
@@ -63,7 +62,6 @@ export const lightThemeColor = {
 // 다크 모드
 export const darkThemeColor = {
   text: {
-    logo: colorSystem.grayscale100,
     title: colorSystem.grayscale050,
     body: colorSystem.grayscale100,
     detail: colorSystem.grayscale200,
