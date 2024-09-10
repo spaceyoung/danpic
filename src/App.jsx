@@ -3,8 +3,7 @@ import { ThemeProvider } from '@contexts/ThemeContext';
 import { Header } from '@components/Header';
 import { Layout } from '@components/Layout';
 import { Banner } from '@components/Banner';
-import { SectionTabList } from '@components/SectionTabs';
-import { ArticleList } from '@components/ArticleList';
+import { SectionTabList, ArticleList } from '@components/SectionTabs';
 import globalStyle from '@styles/global';
 
 function App() {

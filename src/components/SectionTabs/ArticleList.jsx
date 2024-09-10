@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import useFetchData from '@hooks/useFetchData';
 import { NYT_REQUEST_URL } from '@constants/api';
 import { LoadingMessage, ErrorMessage } from '@components/common';
-import { Article } from '@components/ArticleList';
+import { Article } from '@components/SectionTabs';
 
 function ArticleList() {
   const [isFetchLoading, fetchError, articleList] = useFetchData(
