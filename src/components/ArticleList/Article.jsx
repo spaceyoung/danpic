@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import axios from 'axios';
 import { useTheme, css } from '@emotion/react';
 import useTranslate from '@hooks/useTranslate';
 import Translation from '@common/Translation/Translation';
