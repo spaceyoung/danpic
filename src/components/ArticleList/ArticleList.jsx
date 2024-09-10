@@ -1,32 +1,15 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import Masonry from 'react-masonry-css';
 import { css } from '@emotion/react';
+import useFetchData from '../../hooks/useFetchData';
+import { NYT_REQUEST_URL } from '../../constants/api';
 import LoadingMessage from '../common/Loading/LoadingMessage';
 import ErrorMessage from '../common/Error/ErrorMessage';
 import Article from './Article';
 
 function ArticleList() {
-  const [isFetchLoading, setIsFetchLoading] = useState(false);
-  const [fetchError, setFetchError] = useState(null);
-  const [articleList, setArticleList] = useState(null);
-
-  useEffect(() => {
-    const fetchArticleList = async () => {
-      setIsFetchLoading(true);
-      try {
-        const response = await axios.get(
-          `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${import.meta.env.VITE_NYT_API_KEY}`
-        );
-        setArticleList(response.data.response.docs);
-      } catch (error) {
-        console.log(`기사 조회 중 오류 발생 | ${error}`);
-        setFetchError(error);
-      }
-      setIsFetchLoading(false);
-    };
-    fetchArticleList();
-  }, []);
+  const [isFetchLoading, fetchError, articleList] = useFetchData(
+    NYT_REQUEST_URL.SEARCH
+  );
 
   if (isFetchLoading) return <LoadingMessage type={'유용한'} />;
   if (fetchError) return <ErrorMessage />;

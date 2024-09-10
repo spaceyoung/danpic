@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { useTheme, css } from '@emotion/react';
+import useFetchData from '../../hooks/useFetchData';
+import { NYT_REQUEST_URL } from '../../constants/api';
 import LoadingMessage from '../common/Loading/LoadingMessage';
 import ErrorMessage from '../common/Error/ErrorMessage';
 import Translation from '../common/Translation/Translation';
@@ -8,9 +10,9 @@ import TranslateButton from '../common/Button/TranslateButton';
 import ArticleLinkButton from '../common/Button/ArticleLinkButton';
 
 function BannerArticle() {
-  const [isFetchLoading, setIsFetchLoading] = useState(false);
-  const [fetchError, setFetchError] = useState(null);
-  const [article, setArticle] = useState(null);
+  const [isFetchLoading, fetchError, article] = useFetchData(
+    NYT_REQUEST_URL.TOP_STORIES
+  );
 
   const [isTranslated, setIsTranslated] = useState(false);
   const [isTranslateLoading, setIsTranslateLoading] = useState(false);
@@ -39,32 +41,6 @@ function BannerArticle() {
       setIsTranslated(!isTranslated);
     }
   };
-
-  useEffect(() => {
-    const fetchArticle = async () => {
-      setIsFetchLoading(true);
-      try {
-        const response = await axios.get(
-          `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${import.meta.env.VITE_NYT_API_KEY}`
-        );
-        const randomNum = Math.floor(
-          Math.random() * response.data.results.length
-        );
-        const article = response.data.results[randomNum];
-
-        // 기사 section 이름의 첫 글자를 대문자로 변환(us인 경우 모든 글자를 대문자로 변환)
-        article.section = article.section.replace(/(\bus\b)|(\b\w)/g, (str) =>
-          str.toUpperCase()
-        );
-        setArticle(article);
-      } catch (error) {
-        console.log(`기사 조회 중 오류 발생 | ${error}`);
-        setFetchError(error);
-      }
-      setIsFetchLoading(false);
-    };
-    fetchArticle();
-  }, []);
 
   if (isFetchLoading) return <LoadingMessage type={'화제가 된'} />;
   if (fetchError) return <ErrorMessage />;
