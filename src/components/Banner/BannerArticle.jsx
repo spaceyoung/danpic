@@ -26,6 +26,7 @@ function BannerArticle() {
 
   if (isFetchLoading) return <LoadingMessage type={'화제가 된'} />;
   if (fetchError) return <ErrorMessage />;
+  if (!article) return null;
 
   return (
     <>
@@ -37,7 +38,7 @@ function BannerArticle() {
             ${theme.typography.bannerSection}
           `}
         >
-          {article && article.section}
+          {article.section}
         </span>
         <p
           css={css`
@@ -45,7 +46,7 @@ function BannerArticle() {
             ${theme.typography.bannerTitle}
           `}
         >
-          {article && article.title}
+          {article.title}
         </p>
         <Translation
           isTranslated={isTranslated}
@@ -64,11 +65,11 @@ function BannerArticle() {
         `}
       >
         <TranslateButton
-          headline={article && article.title}
+          headline={article.title}
           isTranslated={isTranslated}
           translate={translate}
         />
-        <ArticleLinkButton articleLink={article && article.url} />
+        <ArticleLinkButton articleLink={article.url} />
       </div>
     </>
   );

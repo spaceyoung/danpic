@@ -12,37 +12,36 @@ function ArticleList() {
 
   if (isFetchLoading) return <LoadingMessage type={'유용한'} />;
   if (fetchError) return <ErrorMessage />;
+  if (!articleList) return null;
 
   return (
     <>
-      {articleList && (
-        <div
+      <div
+        css={css`
+          padding: 24px 0;
+        `}
+      >
+        <Masonry
+          breakpointCols={2}
           css={css`
-            padding: 24px 0;
+            display: flex;
+            > *:not(:last-child) {
+              margin-right: 24px;
+            }
+            > * > *:not(:last-child) {
+              margin-bottom: 24px;
+            }
           `}
         >
-          <Masonry
-            breakpointCols={2}
-            css={css`
-              display: flex;
-              > *:not(:last-child) {
-                margin-right: 24px;
-              }
-              > * > *:not(:last-child) {
-                margin-bottom: 24px;
-              }
-            `}
-          >
-            {articleList.map((article) => (
-              <Article
-                key={article._id}
-                publishDate={article.pub_date}
-                headline={article.headline.main}
-              />
-            ))}
-          </Masonry>
-        </div>
-      )}
+          {articleList.map((article) => (
+            <Article
+              key={article._id}
+              publishDate={article.pub_date}
+              headline={article.headline.main}
+            />
+          ))}
+        </Masonry>
+      </div>
     </>
   );
 }
