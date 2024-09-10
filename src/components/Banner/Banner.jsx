@@ -7,6 +7,7 @@ function Banner() {
   return (
     <section
       css={css`
+        margin-bottom: 32px;
         padding: 16px 0;
       `}
     >
