@@ -1,7 +1,7 @@
 import { useTheme, css } from '@emotion/react';
-import { useThemeMode } from '../../contexts/ThemeContext';
-import logoLight from '../../assets/logo-light.svg';
-import logoDark from '../../assets/logo-dark.svg';
+import { useThemeMode } from '@contexts/ThemeContext';
+import logoLight from '@assets/logo-light.svg';
+import logoDark from '@assets/logo-dark.svg';
 
 function Logo() {
   const themeMode = useThemeMode();

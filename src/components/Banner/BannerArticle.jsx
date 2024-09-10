@@ -1,73 +1,32 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useTheme, css } from '@emotion/react';
-import LoadingMessage from '../common/Loading/LoadingMessage';
-import ErrorMessage from '../common/Error/ErrorMessage';
-import Translation from '../common/Translation/Translation';
-import TranslateButton from '../common/Button/TranslateButton';
-import ArticleLinkButton from '../common/Button/ArticleLinkButton';
+import useFetchData from '@hooks/useFetchData';
+import useTranslate from '@hooks/useTranslate';
+import { NYT_REQUEST_URL } from '@constants/api';
+import {
+  LoadingMessage,
+  ErrorMessage,
+  Translation,
+  TranslateButton,
+  ArticleLinkButton,
+} from '@components/common';
 
 function BannerArticle() {
-  const [isFetchLoading, setIsFetchLoading] = useState(false);
-  const [fetchError, setFetchError] = useState(null);
-  const [article, setArticle] = useState(null);
-
-  const [isTranslated, setIsTranslated] = useState(false);
-  const [isTranslateLoading, setIsTranslateLoading] = useState(false);
-  const [translateError, setTranslateError] = useState(null);
-  const [translationText, setTranslationText] = useState(null);
+  const [isFetchLoading, fetchError, article] = useFetchData(
+    NYT_REQUEST_URL.TOP_STORIES
+  );
+  const [
+    isTranslated,
+    isTranslateLoading,
+    translateError,
+    translationText,
+    translate,
+  ] = useTranslate();
 
   const theme = useTheme();
 
-  const translate = async () => {
-    if (!isTranslated) {
-      setIsTranslateLoading(true);
-      try {
-        const response = await axios.post(
-          `https://translation.googleapis.com/language/translate/v2?&key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
-          { q: article.title, target: 'ko' }
-        );
-        setTranslationText(response.data.data.translations[0].translatedText);
-        setIsTranslated(!isTranslated);
-      } catch (error) {
-        console.log(`기사 번역 중 오류 발생 | ${error}`);
-        setTranslateError(error);
-      }
-      setIsTranslateLoading(false);
-    } else {
-      // 이미 저장된 번역문이 있는 경우 API 재요청을 방지하고 토글 기능만 실행
-      setIsTranslated(!isTranslated);
-    }
-  };
-
-  useEffect(() => {
-    const fetchArticle = async () => {
-      setIsFetchLoading(true);
-      try {
-        const response = await axios.get(
-          `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${import.meta.env.VITE_NYT_API_KEY}`
-        );
-        const randomNum = Math.floor(
-          Math.random() * response.data.results.length
-        );
-        const article = response.data.results[randomNum];
-
-        // 기사 section 이름의 첫 글자를 대문자로 변환(us인 경우 모든 글자를 대문자로 변환)
-        article.section = article.section.replace(/(\bus\b)|(\b\w)/g, (str) =>
-          str.toUpperCase()
-        );
-        setArticle(article);
-      } catch (error) {
-        console.log(`기사 조회 중 오류 발생 | ${error}`);
-        setFetchError(error);
-      }
-      setIsFetchLoading(false);
-    };
-    fetchArticle();
-  }, []);
-
   if (isFetchLoading) return <LoadingMessage type={'화제가 된'} />;
   if (fetchError) return <ErrorMessage />;
+  if (!article) return null;
 
   return (
     <>
@@ -79,7 +38,7 @@ function BannerArticle() {
             ${theme.typography.bannerSection}
           `}
         >
-          {article && article.section}
+          {article.section}
         </span>
         <p
           css={css`
@@ -87,7 +46,7 @@ function BannerArticle() {
             ${theme.typography.bannerTitle}
           `}
         >
-          {article && article.title}
+          {article.title}
         </p>
         <Translation
           isTranslated={isTranslated}
@@ -105,8 +64,12 @@ function BannerArticle() {
           ${theme.typography.bannerButton}
         `}
       >
-        <TranslateButton isTranslated={isTranslated} translate={translate} />
-        <ArticleLinkButton articleLink={article && article.url} />
+        <TranslateButton
+          headline={article.title}
+          isTranslated={isTranslated}
+          translate={translate}
+        />
+        <ArticleLinkButton articleLink={article.url} />
       </div>
     </>
   );

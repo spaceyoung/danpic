@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import { MdGTranslate } from 'react-icons/md';
 
-function TranslateButton({ isTranslated, translate }) {
+function TranslateButton({ headline, isTranslated, translate }) {
   return (
     <button
-      onClick={() => translate()}
+      onClick={() => translate(headline)}
       css={css`
         display: flex;
         justify-content: center;

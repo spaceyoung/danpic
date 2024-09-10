@@ -1,19 +1,14 @@
 import { useTheme, css } from '@emotion/react';
-import { useThemeMode } from '../../contexts/ThemeContext';
-import logoLight from '../../assets/logo-light.svg';
-import logoDark from '../../assets/logo-dark.svg';
+import { useThemeMode } from '@contexts/ThemeContext';
+import { formatDateWithDayofWeek } from '@utils/formattingText';
+import logoLight from '@assets/logo-light.svg';
+import logoDark from '@assets/logo-dark.svg';
 
 function BannerHeader() {
   const themeMode = useThemeMode();
   const theme = useTheme();
 
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = ('0' + (today.getMonth() + 1)).slice(-2);
-  const day = ('0' + today.getDate()).slice(-2);
-  const week = ['일', '월', '화', '수', '목', '금', '토'];
-  const dayOfWeek = week[today.getDay()];
-  const formattedDate = `${year}-${month}-${day} (${dayOfWeek})`;
+  const dateOfToday = formatDateWithDayofWeek();
 
   return (
     <div
@@ -28,7 +23,7 @@ function BannerHeader() {
           color: ${theme.color.text.label};
         `}
       >
-        {formattedDate}
+        {dateOfToday}
       </span>
       <div
         css={css`
