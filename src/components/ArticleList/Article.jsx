@@ -1,7 +1,6 @@
 import { useTheme, css } from '@emotion/react';
 import useTranslate from '@hooks/useTranslate';
-import Translation from '@common/Translation/Translation';
-import TranslateButton from '@common/Button/TranslateButton';
+import { Translation, TranslateButton } from '@components/common';
 
 function Article({ publishDate, headline }) {
   const [

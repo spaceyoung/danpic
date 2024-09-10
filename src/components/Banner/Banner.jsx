@@ -1,6 +1,5 @@
 import { useTheme, css } from '@emotion/react';
-import BannerHeader from '@components/Banner/BannerHeader';
-import BannerArticle from '@components/Banner/BannerArticle';
+import { BannerHeader, BannerArticle } from '@components/Banner';
 
 function Banner() {
   const theme = useTheme();

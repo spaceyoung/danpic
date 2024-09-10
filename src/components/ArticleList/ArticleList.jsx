@@ -2,9 +2,8 @@ import Masonry from 'react-masonry-css';
 import { css } from '@emotion/react';
 import useFetchData from '@hooks/useFetchData';
 import { NYT_REQUEST_URL } from '@constants/api';
-import LoadingMessage from '@common/Loading/LoadingMessage';
-import ErrorMessage from '@common/Error/ErrorMessage';
-import Article from '@components/ArticleList/Article';
+import { LoadingMessage, ErrorMessage } from '@components/common';
+import { Article } from '@components/ArticleList';
 
 function ArticleList() {
   const [isFetchLoading, fetchError, articleList] = useFetchData(

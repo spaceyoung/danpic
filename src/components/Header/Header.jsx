@@ -1,6 +1,5 @@
 import { useTheme, css } from '@emotion/react';
-import Logo from '@components/Header/Logo';
-import ThemeToggleSwitch from '@components/Header/ThemeToggleSwitch';
+import { Logo, ThemeToggleSwitch } from '@components/Header';
 
 function Header() {
   const theme = useTheme();

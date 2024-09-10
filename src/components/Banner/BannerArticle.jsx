@@ -2,11 +2,13 @@ import { useTheme, css } from '@emotion/react';
 import useFetchData from '@hooks/useFetchData';
 import useTranslate from '@hooks/useTranslate';
 import { NYT_REQUEST_URL } from '@constants/api';
-import LoadingMessage from '@common/Loading/LoadingMessage';
-import ErrorMessage from '@common/Error/ErrorMessage';
-import Translation from '@common/Translation/Translation';
-import TranslateButton from '@common/Button/TranslateButton';
-import ArticleLinkButton from '@common/Button/ArticleLinkButton';
+import {
+  LoadingMessage,
+  ErrorMessage,
+  Translation,
+  TranslateButton,
+  ArticleLinkButton,
+} from '@components/common';
 
 function BannerArticle() {
   const [isFetchLoading, fetchError, article] = useFetchData(

@@ -1,4 +1,4 @@
-import TranslationDivider from '@common/Translation/TranslationDivider';
+import { TranslationDivider } from '@components/common';
 
 function Translation({
   isTranslated,

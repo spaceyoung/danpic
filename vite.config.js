@@ -10,7 +10,6 @@ export default defineConfig({
       { find: '@apis', replacement: '/src/apis' },
       { find: '@assets', replacement: '/src/assets' },
       { find: '@components', replacement: '/src/components' },
-      { find: '@common', replacement: '/src/components/common' },
       { find: '@constants', replacement: '/src/constants' },
       { find: '@contexts', replacement: '/src/contexts' },
       { find: '@hooks', replacement: '/src/hooks' },
