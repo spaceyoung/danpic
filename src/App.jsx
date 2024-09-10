@@ -1,5 +1,6 @@
 import { Global } from '@emotion/react';
 import { ThemeProvider } from '@contexts/ThemeContext';
+import { ActiveSectionTabProvider } from './contexts/ActiveSectionTabContext';
 import { Header } from '@components/Header';
 import { Layout } from '@components/Layout';
 import { Banner } from '@components/Banner';
@@ -13,8 +14,10 @@ function App() {
       <Header />
       <Layout>
         <Banner />
-        <SectionTabList />
-        <ArticleList />
+        <ActiveSectionTabProvider>
+          <SectionTabList />
+          <ArticleList />
+        </ActiveSectionTabProvider>
       </Layout>
     </ThemeProvider>
   );
