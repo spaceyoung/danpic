@@ -1,10 +1,10 @@
 import axios from 'axios';
-import getRandomInt from '../utils/getRandomInt';
+import getRandomInt from '@utils/getRandomInt';
 import {
   formatPublishDate,
   capitalizeFirstLetter,
-} from '../utils/formattingText';
-import { BASE_URL } from '../constants/api';
+} from '@utils/formattingText';
+import { BASE_URL } from '@constants/api';
 
 export const axiosNYT = axios.create({
   baseURL: BASE_URL.NYT,

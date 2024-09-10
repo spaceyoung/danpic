@@ -1,5 +1,5 @@
-import { lightThemeColor, darkThemeColor } from './color';
-import typography from './typography';
+import { lightThemeColor, darkThemeColor } from '@styles/color';
+import typography from '@styles/typography';
 
 export const lightTheme = {
   color: lightThemeColor,

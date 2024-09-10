@@ -1,6 +1,6 @@
 import { useTheme, css } from '@emotion/react';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
-import { useThemeMode, useSetThemeMode } from '../../contexts/ThemeContext';
+import { useThemeMode, useSetThemeMode } from '@contexts/ThemeContext';
 
 function ThemeToggleSwitch() {
   const themeMode = useThemeMode();

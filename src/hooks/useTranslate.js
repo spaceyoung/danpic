@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { axiosGoogleTranslate } from '../apis/axios';
+import { axiosGoogleTranslate } from '@apis/axios';
 
 const useTranslate = () => {
   const [isTranslated, setIsTranslated] = useState(false);

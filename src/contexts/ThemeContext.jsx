@@ -1,6 +1,6 @@
 import { useState, createContext, useContext } from 'react';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
-import { lightTheme, darkTheme } from '../styles/theme';
+import { lightTheme, darkTheme } from '@styles/theme';
 
 const ThemeModeContext = createContext();
 const SetThemeModeContext = createContext();

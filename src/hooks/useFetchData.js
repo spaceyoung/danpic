@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { axiosNYT } from '../apis/axios';
+import { axiosNYT } from '@apis/axios';
 
 const useFetchData = (requestURL) => {
   const [isFetchLoading, setIsFetchLoading] = useState(false);

@@ -1,4 +1,4 @@
-import TranslationDivider from './TranslationDivider';
+import TranslationDivider from '@common/Translation/TranslationDivider';
 
 function Translation({
   isTranslated,
