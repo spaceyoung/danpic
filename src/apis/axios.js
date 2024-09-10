@@ -1,4 +1,9 @@
 import axios from 'axios';
+import getRandomInt from '../utils/getRandomInt';
+import {
+  formatPublishDate,
+  capitalizeFirstLetter,
+} from '../utils/formattingText';
 import { BASE_URL } from '../constants/api';
 
 export const axiosNYT = axios.create({
@@ -19,24 +24,16 @@ export const axiosGoogleTranslate = axios.create({
 axiosNYT.interceptors.response.use((response) => {
   // 배너 기사
   if (response.data.results) {
-    const randomNumber = Math.floor(
-      Math.random() * response.data.results.length
-    );
-    const article = response.data.results[randomNumber];
-    // 기사 section 이름의 첫 글자를 대문자로 변환(us인 경우 모든 글자를 대문자로 변환)
-    article.section = article.section.replace(/(\bus\b)|(\b\w)/g, (str) =>
-      str.toUpperCase()
-    );
+    const randomInt = getRandomInt(response.data.results.length);
+    const article = response.data.results[randomInt]; // 응답 결과 기사 목록 중 랜덤한 기사 선택
+    article.section = capitalizeFirstLetter(article.section); // 기사 section 이름의 첫 글자 대문자화
     return article;
   }
 
   // 메인 콘텐츠 기사 목록
   else if (response.data.response) {
     const articleList = response.data.response.docs;
-    // 기사 발행일을 yyyy-mm-dd 형식으로 변환
-    articleList.forEach(
-      (article) => (article.pub_date = article.pub_date.substring(0, 10))
-    );
+    articleList.forEach((article) => formatPublishDate(article.pub_date)); // 기사 발행일을 yyyy-mm-dd 형식으로 변환
     return articleList;
   }
 });
