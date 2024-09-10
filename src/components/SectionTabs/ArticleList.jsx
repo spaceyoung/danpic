@@ -31,6 +31,7 @@ function ArticleList() {
           breakpointCols={2}
           css={css`
             display: flex;
+            margin-bottom: 24px;
             > *:not(:last-child) {
               margin-right: 24px;
             }
