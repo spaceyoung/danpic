@@ -1,14 +1,5 @@
 import { useTheme, css } from '@emotion/react';
-
-const sectionTabList = [
-  'World',
-  'Business',
-  'Politics',
-  'Lifestyle',
-  'Tech',
-  'Science',
-  'Health',
-];
+import sectionTabList from '@constants/sectionTabList';
 
 function SectionTabList() {
   const theme = useTheme();
