@@ -5,12 +5,13 @@ function Translation({
   isTranslateLoading,
   translateError,
   translationText,
+  ...args
 }) {
   if (isTranslateLoading)
     return (
       <>
         <TranslationDivider />
-        <p>번역 중...</p>
+        <p {...args}>번역 중...</p>
       </>
     );
 
@@ -18,7 +19,7 @@ function Translation({
     return (
       <>
         <TranslationDivider />
-        <p>번역 중 오류가 발생했어요😢</p>
+        <p {...args}>번역 중 오류가 발생했어요😢</p>
       </>
     );
 
@@ -27,7 +28,7 @@ function Translation({
       {isTranslated && (
         <>
           <TranslationDivider />
-          <p>{translationText}</p>
+          <p {...args}>{translationText}</p>
         </>
       )}
     </>

@@ -49,8 +49,8 @@ function BannerHeader() {
         </figure>
         <h2
           css={css`
-            ${theme.typography.sectionTitle}
             color: ${theme.color.text.title};
+            ${theme.typography.sectionTitle}
           `}
         >
           화제의{' '}

@@ -83,8 +83,8 @@ function BannerArticle() {
         </span>
         <p
           css={css`
-            ${theme.typography.bannerTitle}
             color: ${theme.color.text.title};
+            ${theme.typography.bannerTitle}
           `}
         >
           {article && article.title}
@@ -98,11 +98,11 @@ function BannerArticle() {
       </div>
       <div
         css={css`
-          ${theme.typography.bannerButton}
           display: flex;
           align-self: flex-end;
           gap: 24px;
           color: ${theme.color.button.banner};
+          ${theme.typography.bannerButton}
         `}
       >
         <TranslateButton isTranslated={isTranslated} translate={translate} />

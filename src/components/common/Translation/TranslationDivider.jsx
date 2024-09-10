@@ -10,7 +10,7 @@ function TranslationDivider() {
         height: 1px;
         margin: 20px 0 12px;
         border: 0;
-        background-color: ${theme.color.border.banner};
+        background-color: ${theme.color.border.default};
       `}
     />
   );

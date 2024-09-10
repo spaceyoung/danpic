@@ -8,6 +8,7 @@ const colorSystem = {
   grayscale500: '#778288',
   grayscale600: '#5F686D',
   grayscale700: '#474E52',
+  grayscale750: '#3B4144',
   grayscale800: '#2F3437',
   grayscale900: '#181A1B',
 
@@ -22,8 +23,10 @@ const colorSystem = {
   blue800: '#122A54',
   blue900: '#09152A',
 
-  shadow100: 'rgba(24, 26, 27, 0.1)',
-  shadow200: 'rgba(24, 26, 27, 0.2)',
+  blackShadow100: 'rgba(24, 26, 27, 0.1)',
+  blackShadow300: 'rgba(24, 26, 27, 0.3)',
+
+  whiteShadow300: 'rgba(255, 255, 255, 0.3)',
 };
 
 // 라이트 모드
@@ -47,11 +50,10 @@ export const lightThemeColor = {
     article: colorSystem.grayscale000,
   },
   border: {
-    default: colorSystem.grayscale200,
-    banner: colorSystem.grayscale300,
+    default: colorSystem.blackShadow300,
   },
   shadow: {
-    default: colorSystem.shadow100,
+    default: colorSystem.blackShadow100,
   },
   button: {
     banner: colorSystem.blue600,
@@ -76,14 +78,13 @@ export const darkThemeColor = {
     default: colorSystem.grayscale800,
     toggleSwitch: colorSystem.blue300,
     banner: colorSystem.blue600,
-    article: colorSystem.grayscale700,
+    article: colorSystem.grayscale750,
   },
   border: {
-    default: colorSystem.grayscale500,
-    banner: colorSystem.grayscale400,
+    default: colorSystem.whiteShadow300,
   },
   shadow: {
-    default: colorSystem.shadow200,
+    default: colorSystem.blackShadow300,
   },
   button: {
     banner: colorSystem.blue050,
