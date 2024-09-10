@@ -8,6 +8,7 @@ const colorSystem = {
   grayscale500: '#778288',
   grayscale600: '#5F686D',
   grayscale700: '#474E52',
+  grayscale750: '#3B4144',
   grayscale800: '#2F3437',
   grayscale900: '#181A1B',
 
@@ -76,7 +77,7 @@ export const darkThemeColor = {
     default: colorSystem.grayscale800,
     toggleSwitch: colorSystem.blue300,
     banner: colorSystem.blue600,
-    article: colorSystem.grayscale700,
+    article: colorSystem.grayscale750,
   },
   border: {
     default: colorSystem.grayscale500,
