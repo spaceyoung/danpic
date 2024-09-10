@@ -76,6 +76,9 @@ const globalStyle = (theme) => css`
 
   button {
     all: unset;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     cursor: pointer;
   }
 `;
