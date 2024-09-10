@@ -10,7 +10,7 @@ const useFetchData = (requestURL, section = null, deps = []) => {
   // 그렇지 않으면(배너 기사) 빈 값을 생성 후
   // .toString() 메서드를 통해 쿼리 파라미터를 문자열로 변환
   const searchParams = new URLSearchParams(
-    section ? { fq: `section_name:("${section}")` } : ''
+    section ? { fq: `section_name:("${section}")`, sort: 'newest' } : ''
   ).toString();
 
   const fetchData = useCallback(async () => {
