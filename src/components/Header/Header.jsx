@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { throttle } from 'lodash';
 import { useTheme, css } from '@emotion/react';
 import { Logo, ThemeToggleSwitch } from '@components/Header';
 
@@ -7,11 +8,11 @@ function Header() {
 
   const theme = useTheme();
 
-  const handleScroll = () => {
+  const handleScroll = throttle(() => {
     if (window.scrollY > 16)
       setActiveBorder((prevActiveBorder) => (prevActiveBorder = true));
     else setActiveBorder((prevActiveBorder) => (prevActiveBorder = false));
-  };
+  }, 100);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
