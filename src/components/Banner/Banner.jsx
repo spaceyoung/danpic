@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { useTheme, css } from '@emotion/react';
-import { useSetIsBorderActive } from '../../contexts/IsBorderActiveContext';
+import { useSetIsBorderActive } from '@contexts/IsBorderActiveContext';
 import { BannerHeader, BannerArticle } from '@components/Banner';
 
 function Banner() {

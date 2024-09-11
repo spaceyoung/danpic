@@ -1,5 +1,5 @@
 import { useTheme, css } from '@emotion/react';
-import { useIsBorderActive } from '../../contexts/IsBorderActiveContext';
+import { useIsBorderActive } from '@contexts/IsBorderActiveContext';
 import { Logo, ThemeToggleSwitch } from '@components/Header';
 
 function Header() {
