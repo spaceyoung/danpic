@@ -1,8 +1,12 @@
 import { useTheme, css } from '@emotion/react';
 import { MdOutlineAddCircleOutline } from 'react-icons/md';
+import { LoadingMessage, ErrorMessage } from '@components/common';
 
-function ViewMoreButton({ setClickCount }) {
+function ViewMoreButton({ isFetchLoading, fetchError, setClickCount }) {
   const theme = useTheme();
+
+  if (isFetchLoading) return <LoadingMessage type={'유용한'} />;
+  if (fetchError) return <ErrorMessage />;
 
   return (
     <button

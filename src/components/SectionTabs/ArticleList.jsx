@@ -61,7 +61,11 @@ function ArticleList() {
             />
           ))}
         </Masonry>
-        <ViewMoreButton setClickCount={setClickCount} />
+        <ViewMoreButton
+          isFetchLoading={isFetchLoading}
+          fetchError={fetchError}
+          setClickCount={setClickCount}
+        />
       </div>
     </>
   );
