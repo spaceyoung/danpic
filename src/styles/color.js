@@ -47,6 +47,7 @@ export const lightThemeColor = {
     toggleSwitch: colorSystem.grayscale200,
     banner: colorSystem.blue050,
     article: colorSystem.grayscale000,
+    viewMoreButton: colorSystem.grayscale050,
   },
   border: {
     default: colorSystem.blackShadow300,
@@ -77,6 +78,7 @@ export const darkThemeColor = {
     toggleSwitch: colorSystem.blue300,
     banner: colorSystem.blue600,
     article: colorSystem.grayscale750,
+    viewMoreButton: colorSystem.grayscale700,
   },
   border: {
     default: colorSystem.whiteShadow300,
