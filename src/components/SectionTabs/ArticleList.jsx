@@ -28,8 +28,9 @@ function ArticleList() {
     resetArticleList();
   }, [resetArticleList]);
 
-  if (isFetchLoading) return <LoadingMessage type={'유용한'} />;
-  if (fetchError) return <ErrorMessage />;
+  if (isFetchLoading & (articleList.length === 0))
+    return <LoadingMessage type={'유용한'} />;
+  if (fetchError & (articleList.length === 0)) return <ErrorMessage />;
   if (!articleList) return null;
 
   return (
