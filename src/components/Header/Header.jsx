@@ -1,8 +1,24 @@
+import { useState, useEffect } from 'react';
 import { useTheme, css } from '@emotion/react';
 import { Logo, ThemeToggleSwitch } from '@components/Header';
 
 function Header() {
+  const [activeBorder, setActiveBorder] = useState(false);
+
   const theme = useTheme();
+
+  const handleScroll = () => {
+    if (window.scrollY > 16)
+      setActiveBorder((prevActiveBorder) => (prevActiveBorder = true));
+    else setActiveBorder((prevActiveBorder) => (prevActiveBorder = false));
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <header
@@ -10,6 +26,10 @@ function Header() {
         width: 100%;
         height: 72px;
         padding: 0 80px;
+        border-bottom: 1px solid
+          ${activeBorder
+            ? theme.color.border.header
+            : theme.color.background.default};
         background-color: ${theme.color.background.default};
         position: sticky;
         left: 0;
