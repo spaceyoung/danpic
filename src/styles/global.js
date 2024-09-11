@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import reset from 'styled-reset';
+import breakpoints from '@styles/breakpoints';
 
 const globalStyle = (theme) => css`
   ${reset}
@@ -80,6 +81,12 @@ const globalStyle = (theme) => css`
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     cursor: pointer;
+  }
+
+  @media all and (max-width: ${breakpoints.md - 1}px) {
+    :root {
+      font-size: 15px;
+    }
   }
 `;
 
