@@ -26,6 +26,7 @@ const colorSystem = {
   blackShadow100: 'rgba(24, 26, 27, 0.1)',
   blackShadow300: 'rgba(24, 26, 27, 0.3)',
 
+  whiteShadow100: 'rgba(255, 255, 255, 0.1)',
   whiteShadow300: 'rgba(255, 255, 255, 0.3)',
 };
 
@@ -51,6 +52,7 @@ export const lightThemeColor = {
   },
   border: {
     default: colorSystem.blackShadow300,
+    header: colorSystem.blackShadow100,
   },
   shadow: {
     default: colorSystem.blackShadow100,
@@ -82,6 +84,7 @@ export const darkThemeColor = {
   },
   border: {
     default: colorSystem.whiteShadow300,
+    header: colorSystem.whiteShadow100,
   },
   shadow: {
     default: colorSystem.blackShadow300,
