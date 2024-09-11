@@ -1,25 +1,10 @@
-import { useState, useEffect } from 'react';
-import { throttle } from 'lodash';
 import { useTheme, css } from '@emotion/react';
+import { useIsBorderActive } from '../../contexts/IsBorderActiveContext';
 import { Logo, ThemeToggleSwitch } from '@components/Header';
 
 function Header() {
-  const [activeBorder, setActiveBorder] = useState(false);
-
   const theme = useTheme();
-
-  const handleScroll = throttle(() => {
-    if (window.scrollY > 16)
-      setActiveBorder((prevActiveBorder) => (prevActiveBorder = true));
-    else setActiveBorder((prevActiveBorder) => (prevActiveBorder = false));
-  }, 100);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const isBorderActive = useIsBorderActive();
 
   return (
     <header
@@ -28,7 +13,7 @@ function Header() {
         height: 72px;
         padding: 0 80px;
         border-bottom: 1px solid
-          ${activeBorder
+          ${!isBorderActive
             ? theme.color.border.header
             : theme.color.background.default};
         background-color: ${theme.color.background.default};
