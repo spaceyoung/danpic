@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Masonry from 'react-masonry-css';
 import { css } from '@emotion/react';
 import { useActiveSectionTab } from '@contexts/ActiveSectionTabContext';
@@ -18,6 +18,15 @@ function ArticleList() {
     clickCount,
     [activeSectionTab, clickCount]
   );
+
+  // 다른 섹션 탭으로 이동하는 경우 저장된 기존 기사 목록을 초기화
+  const resetArticleList = useCallback(() => {
+    articleList.splice(0);
+  }, [activeSectionTab]);
+
+  useEffect(() => {
+    resetArticleList();
+  }, [resetArticleList]);
 
   if (isFetchLoading) return <LoadingMessage type={'유용한'} />;
   if (fetchError) return <ErrorMessage />;
