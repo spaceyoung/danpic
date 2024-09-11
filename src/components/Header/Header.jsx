@@ -14,6 +14,7 @@ function Header() {
         position: sticky;
         left: 0;
         top: 0;
+        z-index: 1000;
         transition: all 0.2s;
       `}
     >
