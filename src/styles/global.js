@@ -56,7 +56,7 @@ const globalStyle = (theme) => css`
   }
 
   body {
-    min-width: 360px;
+    min-width: 320px;
     color: ${theme.color.text.body};
     background-color: ${theme.color.background.default};
     transition: background-color 0.2s;
