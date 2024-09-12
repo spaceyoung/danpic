@@ -21,19 +21,19 @@ function Article({ publishDate, headline }) {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        gap: 16px;
+        gap: 1rem;
         min-height: 120px;
-        padding: 16px 20px 14px;
-        border-radius: 8px;
+        padding: 1rem 1.25rem 0.875rem;
+        border-radius: 0.5rem;
         background-color: ${theme.color.background.article};
-        box-shadow: 3px 3px 10px 3px ${theme.color.shadow.default};
+        box-shadow: 0.2rem 0.2rem 0.625rem 0.2rem ${theme.color.shadow.default};
       `}
     >
       <div>
         <span
           css={css`
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 0.25rem;
             color: ${theme.color.text.label};
             ${theme.typography.detail2}
           `}

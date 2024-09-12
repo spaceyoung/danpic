@@ -34,7 +34,7 @@ function BannerArticle() {
         <span
           css={css`
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             ${theme.typography.detail1}
           `}
         >
@@ -59,7 +59,7 @@ function BannerArticle() {
         css={css`
           display: flex;
           align-self: flex-end;
-          gap: 24px;
+          gap: 1.5rem;
           color: ${theme.color.button.banner};
           ${theme.typography.label2}
         `}

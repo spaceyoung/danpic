@@ -35,8 +35,8 @@ function SectionTabList() {
               )
             }
             css={css`
-              height: 48px;
-              padding: 0 24px;
+              height: 3rem;
+              padding: 0 1.5rem;
               color: ${sectionTab === activeSectionTab
                 ? theme.color.emphasis.primary
                 : theme.color.text.disabled};

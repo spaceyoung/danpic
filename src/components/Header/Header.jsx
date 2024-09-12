@@ -10,8 +10,8 @@ function Header() {
     <header
       css={css`
         width: 100%;
-        height: 72px;
-        padding: 0 80px;
+        height: 4.5rem;
+        padding: 0 5rem;
         border-bottom: 1px solid
           ${!isBorderActive
             ? theme.color.border.header

@@ -37,19 +37,19 @@ function ArticleList() {
     <>
       <div
         css={css`
-          padding: 24px 0;
+          padding: 1.5rem 0;
         `}
       >
         <Masonry
           breakpointCols={2}
           css={css`
             display: flex;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
             > *:not(:last-child) {
-              margin-right: 24px;
+              margin-right: 1.5rem;
             }
             > * > *:not(:last-child) {
-              margin-bottom: 24px;
+              margin-bottom: 1.5rem;
             }
           `}
         >

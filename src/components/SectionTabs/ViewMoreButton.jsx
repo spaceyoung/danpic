@@ -15,13 +15,13 @@ function ViewMoreButton({ isFetchLoading, fetchError, setClickCount }) {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 4px;
+        gap: 0.25rem;
         width: 100%;
         margin: 0 auto;
-        padding: 12px 20px;
-        border-radius: 8px;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.5rem;
         background-color: ${theme.color.background.viewMoreButton};
-        box-shadow: 3px 3px 10px 3px ${theme.color.shadow.default};
+        box-shadow: 0.2rem 0.2rem 0.625rem 0.2rem ${theme.color.shadow.default};
         ${theme.typography.label2}
       `}
     >
