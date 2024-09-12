@@ -20,9 +20,9 @@ function ViewMoreButton({ isFetchLoading, fetchError, setClickCount }) {
         margin: 0 auto;
         padding: 12px 20px;
         border-radius: 8px;
-        font-weight: 500;
         background-color: ${theme.color.background.viewMoreButton};
         box-shadow: 3px 3px 10px 3px ${theme.color.shadow.default};
+        ${theme.typography.label2}
       `}
     >
       <MdOutlineAddCircleOutline />더 보기

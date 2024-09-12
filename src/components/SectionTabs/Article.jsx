@@ -35,14 +35,14 @@ function Article({ publishDate, headline }) {
             display: block;
             margin-bottom: 4px;
             color: ${theme.color.text.label};
-            ${theme.typography.articleDate}
+            ${theme.typography.detail2}
           `}
         >
           {formattedPublishDate}
         </span>
         <p
           css={css`
-            ${theme.typography.articleTitle}
+            ${theme.typography.title3}
           `}
         >
           {headline}

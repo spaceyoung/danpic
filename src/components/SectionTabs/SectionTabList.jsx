@@ -41,7 +41,7 @@ function SectionTabList() {
                 ? theme.color.emphasis.primary
                 : theme.color.text.disabled};
               transition: all 0.2s;
-              ${theme.typography.tabList}
+              ${theme.typography.label1}
               ::after {
                 content: '';
                 width: 100%;
