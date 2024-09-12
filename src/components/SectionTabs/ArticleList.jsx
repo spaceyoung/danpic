@@ -41,7 +41,10 @@ function ArticleList() {
         `}
       >
         <Masonry
-          breakpointCols={2}
+          breakpointCols={{
+            default: 2,
+            567: 1,
+          }}
           css={css`
             display: flex;
             margin-bottom: 1.5rem;
