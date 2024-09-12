@@ -35,6 +35,12 @@ const typography = {
     fontSize: '1rem',
   },
 
+  // 탭 목록
+  tabList: {
+    fontWeight: '500',
+    fontSize: '1.25rem',
+  },
+
   // 기사
   articleTitle: {
     fontWeight: '600',

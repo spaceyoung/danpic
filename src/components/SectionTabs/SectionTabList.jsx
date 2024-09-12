@@ -37,12 +37,11 @@ function SectionTabList() {
             css={css`
               height: 48px;
               padding: 0 24px;
-              font-weight: 500;
-              font-size: 20px;
               color: ${sectionTab === activeSectionTab
                 ? theme.color.emphasis.primary
                 : theme.color.text.disabled};
               transition: all 0.2s;
+              ${theme.typography.tabList}
               ::after {
                 content: '';
                 width: 100%;
