@@ -4,6 +4,7 @@ import {
   useSetActiveSectionTab,
 } from '@contexts/ActiveSectionTabContext';
 import sectionTabList from '@constants/sectionTabList';
+import { mediaQuery } from '@styles/breakpoints';
 
 function SectionTabList() {
   const activeSectionTab = useActiveSectionTab();
@@ -17,6 +18,10 @@ function SectionTabList() {
         display: flex;
         justify-content: center;
         align-items: center;
+        ${mediaQuery[2]} {
+          justify-content: flex-start;
+          overflow-x: auto;
+        }
       `}
     >
       {sectionTabList.map((sectionTab) => (
@@ -56,6 +61,12 @@ function SectionTabList() {
               }
               :hover {
                 color: ${theme.color.emphasis.primary};
+              }
+              ${mediaQuery[2]} {
+                padding: 0 1.25rem;
+              }
+              ${mediaQuery[1]} {
+                padding: 0 1rem;
               }
             `}
           >
