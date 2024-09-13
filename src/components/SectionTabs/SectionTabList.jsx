@@ -65,6 +65,7 @@ function SectionTabList() {
               color: ${sectionTab === activeSectionTab
                 ? theme.color.emphasis.primary
                 : theme.color.text.disabled};
+              cursor: ${isScrolling ? 'grabbing' : null};
               transition: all 0.2s;
               ${theme.typography.label1}
               ::after {
