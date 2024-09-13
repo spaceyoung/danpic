@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useTheme, css } from '@emotion/react';
 import {
   useActiveSectionTab,
@@ -11,17 +12,26 @@ function SectionTabListButton({
   scrollStartClientX,
   scrollEndClientX,
 }) {
+  const scrollToFocusRef = useRef(null);
+
   const activeSectionTab = useActiveSectionTab();
   const setActiveSectionTab = useSetActiveSectionTab();
   const theme = useTheme();
 
   const handleTabListButtonClick = (tabListButton) => {
-    if (scrollStartClientX == scrollEndClientX)
+    if (scrollStartClientX == scrollEndClientX) {
       setActiveSectionTab(tabListButton);
+      scrollToFocusRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'start',
+      });
+    }
   };
 
   return (
     <button
+      ref={scrollToFocusRef}
       onClick={() => handleTabListButtonClick(sectionTab)}
       css={css`
         height: 3rem;
