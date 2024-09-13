@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import throttle from '@utils/throttle';
 
 const useTouchScroll = (scrollRef) => {
   const [isScrolling, setIsScrolling] = useState(false); // 대상을 스크롤 중인지
@@ -12,10 +13,10 @@ const useTouchScroll = (scrollRef) => {
     setScrollStartClientX(e.clientX);
   };
 
-  const handleScrollMove = (e) => {
+  const handleScrollMove = throttle((e) => {
     if (isScrolling)
       scrollRef.current.scrollLeft = scrollStartPositionX - e.clientX;
-  }
+  }, 100);
 
   const handleScrollEnd = (e) => {
     if (isScrolling) {
