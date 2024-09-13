@@ -6,6 +6,7 @@ import useFetchData from '@hooks/useFetchData';
 import { NYT_REQUEST_URL } from '@constants/api';
 import { LoadingMessage, ErrorMessage } from '@components/common';
 import { Article, ViewMoreButton } from '@components/SectionTabs';
+import { mediaQuery } from '@styles/breakpoints';
 
 function ArticleList() {
   const [clickCount, setClickCount] = useState(0);
@@ -37,19 +38,22 @@ function ArticleList() {
     <>
       <div
         css={css`
-          padding: 24px 0;
+          padding: 1.5rem 0;
         `}
       >
         <Masonry
-          breakpointCols={2}
+          breakpointCols={{
+            default: 2,
+            567: 1,
+          }}
           css={css`
             display: flex;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
             > *:not(:last-child) {
-              margin-right: 24px;
+              margin-right: 1.25rem;
             }
             > * > *:not(:last-child) {
-              margin-bottom: 24px;
+              margin-bottom: 1.25rem;
             }
           `}
         >

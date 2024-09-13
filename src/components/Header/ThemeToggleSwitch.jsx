@@ -37,6 +37,7 @@ function ThemeToggleSwitch() {
           width: 100%;
           height: 100%;
           border-radius: 14px;
+          font-size: 16px;
           background-color: ${theme.color.background.toggleSwitch};
           position: absolute;
           left: 0;

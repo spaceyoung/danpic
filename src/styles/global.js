@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import reset from 'styled-reset';
+import { mediaQuery } from '@styles/breakpoints';
 
 const globalStyle = (theme) => css`
   ${reset}
@@ -55,7 +56,7 @@ const globalStyle = (theme) => css`
   }
 
   body {
-    min-width: 360px;
+    min-width: 320px;
     color: ${theme.color.text.body};
     background-color: ${theme.color.background.default};
     transition: background-color 0.2s;
@@ -80,6 +81,12 @@ const globalStyle = (theme) => css`
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     cursor: pointer;
+  }
+
+  ${mediaQuery[1]} {
+    :root {
+      font-size: 15px;
+    }
   }
 `;
 

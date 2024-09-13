@@ -12,8 +12,8 @@ function LoadingMessage({ type }) {
       `}
     >
       <BeatLoader
-        margin={8}
-        size={12}
+        margin={'0.5rem'}
+        size={'0.75rem'}
         speedMultiplier={0.5}
         color={theme.color.emphasis.primary}
       />

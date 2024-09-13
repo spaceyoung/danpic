@@ -13,13 +13,13 @@ function BannerHeader() {
   return (
     <div
       css={css`
-        margin-bottom: 12px;
+        margin-bottom: 0.75rem;
       `}
     >
       <span
         css={css`
           display: block;
-          margin-bottom: 4px;
+          margin-bottom: 0.25rem;
           color: ${theme.color.text.label};
         `}
       >
@@ -29,7 +29,7 @@ function BannerHeader() {
         css={css`
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 0.75rem;
         `}
       >
         <figure>
@@ -37,15 +37,15 @@ function BannerHeader() {
             src={themeMode === 'light' ? logoLight : logoDark}
             alt="단픽"
             css={css`
-              width: 28px;
-              margin-bottom: 2px;
+              width: 1.75rem;
+              margin-bottom: 0.125rem;
             `}
           />
         </figure>
         <h2
           css={css`
             color: ${theme.color.text.title};
-            ${theme.typography.sectionTitle}
+            ${theme.typography.title1}
           `}
         >
           화제의{' '}

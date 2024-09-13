@@ -8,7 +8,7 @@ function TranslationDivider() {
       css={css`
         width: 40%;
         height: 1px;
-        margin: 20px 0 12px;
+        margin: 1.25rem 0 0.75rem;
         border: 0;
         background-color: ${theme.color.border.default};
       `}

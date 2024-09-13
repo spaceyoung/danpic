@@ -28,8 +28,8 @@ function Banner() {
     <section
       ref={target}
       css={css`
-        margin-bottom: 32px;
-        padding: 16px 0;
+        margin-bottom: 2rem;
+        padding: 1rem 0;
       `}
     >
       <BannerHeader />
@@ -38,12 +38,13 @@ function Banner() {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          gap: 24px;
+          gap: 1.5rem;
           min-height: 200px;
-          padding: 20px 32px;
-          border-radius: 8px;
+          padding: 1.25rem 2rem;
+          border-radius: 0.5rem;
           background-color: ${theme.color.background.banner};
-          box-shadow: 3px 3px 10px 3px ${theme.color.shadow.default};
+          box-shadow: 0.2rem 0.2rem 0.625rem 0.2rem
+            ${theme.color.shadow.default};
         `}
       >
         <BannerArticle />

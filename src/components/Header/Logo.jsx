@@ -14,7 +14,7 @@ function Logo() {
         css={css`
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 0.5rem;
         `}
       >
         <figure>
@@ -22,7 +22,7 @@ function Logo() {
             src={themeMode === 'light' ? logoLight : logoDark}
             alt="단픽"
             css={css`
-              width: 22px;
+              width: 1.375rem;
             `}
           />
         </figure>

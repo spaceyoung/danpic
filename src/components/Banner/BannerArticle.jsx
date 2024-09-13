@@ -34,8 +34,8 @@ function BannerArticle() {
         <span
           css={css`
             display: block;
-            margin-bottom: 8px;
-            ${theme.typography.bannerSection}
+            margin-bottom: 0.5rem;
+            ${theme.typography.detail1}
           `}
         >
           {article.section}
@@ -43,7 +43,7 @@ function BannerArticle() {
         <p
           css={css`
             color: ${theme.color.text.title};
-            ${theme.typography.bannerTitle}
+            ${theme.typography.title2}
           `}
         >
           {article.title}
@@ -59,9 +59,9 @@ function BannerArticle() {
         css={css`
           display: flex;
           align-self: flex-end;
-          gap: 24px;
+          gap: 1.5rem;
           color: ${theme.color.button.banner};
-          ${theme.typography.bannerButton}
+          ${theme.typography.label2}
         `}
       >
         <TranslateButton
