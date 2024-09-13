@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useTheme, css } from '@emotion/react';
 import {
   useActiveSectionTab,
@@ -8,6 +9,8 @@ import sectionTabList from '@constants/sectionTabList';
 import { mediaQuery } from '@styles/breakpoints';
 
 function SectionTabList() {
+  const scrollRef = useRef(null);
+
   const [
     isScrolling,
     scrollStartClientX,
@@ -15,7 +18,7 @@ function SectionTabList() {
     handleScrollStart,
     handleScrollMove,
     handleScrollEnd,
-  ] = useTouchScroll();
+  ] = useTouchScroll(scrollRef);
 
   const activeSectionTab = useActiveSectionTab();
   const setActiveSectionTab = useSetActiveSectionTab();
@@ -27,6 +30,7 @@ function SectionTabList() {
 
   return (
     <ul
+      ref={scrollRef}
       onMouseDown={handleScrollStart}
       onMouseMove={isScrolling ? handleScrollMove : null}
       onMouseUp={handleScrollEnd}
