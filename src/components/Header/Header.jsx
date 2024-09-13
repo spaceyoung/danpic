@@ -11,7 +11,7 @@ function Header() {
       css={css`
         width: 100%;
         height: 4.5rem;
-        padding: 0 5rem;
+        padding: 0 2rem;
         border-bottom: 1px solid
           ${!isBorderActive
             ? theme.color.border.header
