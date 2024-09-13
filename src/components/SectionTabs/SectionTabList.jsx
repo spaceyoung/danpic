@@ -18,6 +18,9 @@ function SectionTabList() {
         display: flex;
         justify-content: center;
         align-items: center;
+        ::-webkit-scrollbar {
+          display: none;
+        }
         ${mediaQuery[2]} {
           justify-content: flex-start;
           overflow-x: auto;
