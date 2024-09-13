@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { mediaQuery } from '@styles/breakpoints';
 
 function Layout({ children }) {
   return (
@@ -11,6 +12,9 @@ function Layout({ children }) {
         min-height: calc(100vh - 4.5rem);
         margin: 0 auto;
         padding: 0 2.5rem;
+        ${mediaQuery[2]} {
+          padding: 0 1.5rem;
+        }
       `}
     >
       {children}
