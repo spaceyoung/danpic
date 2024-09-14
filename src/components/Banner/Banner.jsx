@@ -1,21 +1,17 @@
 import { useRef, useEffect } from 'react';
 import { useTheme, css } from '@emotion/react';
-import { useSetIsBorderActive } from '@contexts/IsBorderActiveContext';
+import useBorderStore from '@stores/useBorderStore';
 import { BannerHeader, BannerArticle } from '@components/Banner';
 
 function Banner() {
   const target = useRef(null);
 
-  const setIsBorderActive = useSetIsBorderActive();
   const theme = useTheme();
+  const { setIsBorderActive } = useBorderStore();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) =>
-        setIsBorderActive(
-          (prevIsActiveBorder) =>
-            (prevIsActiveBorder = entries[0].isIntersecting)
-        ),
+      (entries) => setIsBorderActive(entries[0].isIntersecting),
       { threshold: 1.0 } // target 요소가 100% 보이는 경우에만 observer 실행
     );
     if (target.current) observer.observe(target.current); // 관찰하는 target 요소가 있을 경우에만 실행

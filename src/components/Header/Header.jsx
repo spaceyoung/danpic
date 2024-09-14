@@ -1,11 +1,11 @@
 import { useTheme, css } from '@emotion/react';
-import { useIsBorderActive } from '@contexts/IsBorderActiveContext';
+import useBorderStore from '@stores/useBorderStore';
 import { Logo, ThemeToggleSwitch } from '@components/Header';
 import { mediaQuery } from '@styles/breakpoints';
 
 function Header() {
-  const isBorderActive = useIsBorderActive();
   const theme = useTheme();
+  const { isBorderActive } = useBorderStore();
 
   return (
     <header
