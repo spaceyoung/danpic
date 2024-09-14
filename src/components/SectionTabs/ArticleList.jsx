@@ -29,10 +29,10 @@ function ArticleList() {
     resetArticleList();
   }, [resetArticleList]);
 
-  if (isFetchLoading & (articleList.length === 0))
+  if (isFetchLoading && articleList.length === 0)
     return <LoadingMessage type={'유용한'} />;
-  if (fetchError & (articleList.length === 0)) return <ErrorMessage />;
-  if (!articleList) return null;
+  if (fetchError && articleList.length === 0) return <ErrorMessage />;
+  if (articleList.length === 0) return null;
 
   return (
     <>
