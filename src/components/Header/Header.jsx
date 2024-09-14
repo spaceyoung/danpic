@@ -4,8 +4,8 @@ import { Logo, ThemeToggleSwitch } from '@components/Header';
 import { mediaQuery } from '@styles/breakpoints';
 
 function Header() {
-  const theme = useTheme();
   const isBorderActive = useIsBorderActive();
+  const theme = useTheme();
 
   return (
     <header
