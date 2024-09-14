@@ -6,7 +6,6 @@ import useFetchData from '@hooks/useFetchData';
 import { NYT_REQUEST_URL } from '@constants/api';
 import { LoadingMessage, ErrorMessage } from '@components/common';
 import { Article, ViewMoreButton } from '@components/SectionTabs';
-import { mediaQuery } from '@styles/breakpoints';
 
 function ArticleList() {
   const [clickCount, setClickCount] = useState(0);
