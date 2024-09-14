@@ -1,12 +1,12 @@
 import { useTheme, css } from '@emotion/react';
-import { useThemeMode } from '@contexts/ThemeContext';
+import useThemeStore from '../../stores/useThemeStore';
 import { formatDateWithDayofWeek } from '@utils/formattingText';
 import logoLight from '@assets/logo-light.svg';
 import logoDark from '@assets/logo-dark.svg';
 
 function BannerHeader() {
-  const themeMode = useThemeMode();
   const theme = useTheme();
+  const { themeMode } = useThemeStore();
 
   const dateOfToday = formatDateWithDayofWeek();
 
