@@ -1,9 +1,6 @@
 import { useRef } from 'react';
 import { useTheme, css } from '@emotion/react';
-import {
-  useActiveSectionTab,
-  useSetActiveSectionTab,
-} from '@contexts/ActiveSectionTabContext';
+import useActiveTabStore from '@stores/useActiveTabStore';
 import { mediaQuery } from '@styles/breakpoints';
 
 function SectionTabListButton({
@@ -14,9 +11,8 @@ function SectionTabListButton({
 }) {
   const scrollToFocusRef = useRef(null);
 
-  const activeSectionTab = useActiveSectionTab();
-  const setActiveSectionTab = useSetActiveSectionTab();
   const theme = useTheme();
+  const { activeSectionTab, setActiveSectionTab } = useActiveTabStore();
 
   const handleTabListButtonClick = (tabListButton) => {
     if (scrollStartClientX == scrollEndClientX) {

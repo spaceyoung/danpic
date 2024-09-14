@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Masonry from 'react-masonry-css';
 import { css } from '@emotion/react';
-import { useActiveSectionTab } from '@contexts/ActiveSectionTabContext';
+import useActiveTabStore from '@stores/useActiveTabStore';
 import useFetchData from '@hooks/useFetchData';
 import { NYT_REQUEST_URL } from '@constants/api';
 import { LoadingMessage, ErrorMessage } from '@components/common';
@@ -10,7 +10,7 @@ import { Article, ViewMoreButton } from '@components/SectionTabs';
 function ArticleList() {
   const [clickCount, setClickCount] = useState(0);
 
-  const activeSectionTab = useActiveSectionTab();
+  const { activeSectionTab } = useActiveTabStore();
 
   const [isFetchLoading, fetchError, articleList] = useFetchData(
     NYT_REQUEST_URL.SEARCH,
