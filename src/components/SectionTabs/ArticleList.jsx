@@ -6,12 +6,10 @@ import useFetchData from '@hooks/useFetchData';
 import { NYT_REQUEST_URL } from '@constants/api';
 import { LoadingMessage, ErrorMessage } from '@components/common';
 import { Article, ViewMoreButton } from '@components/SectionTabs';
-import { mediaQuery } from '@styles/breakpoints';
 
 function ArticleList() {
   const [clickCount, setClickCount] = useState(0);
 
-  const activeSectionTab = useActiveSectionTab();
   const [isFetchLoading, fetchError, articleList] = useFetchData(
     NYT_REQUEST_URL.SEARCH,
     // activeSectionTab이 Business일 경우 해당하는 검색 쿼리를 위해 Business Day로 값을 재할당
@@ -19,6 +17,8 @@ function ArticleList() {
     clickCount,
     [activeSectionTab, clickCount]
   );
+
+  const activeSectionTab = useActiveSectionTab();
 
   // 다른 섹션 탭으로 이동하는 경우 저장된 기존 기사 목록을 초기화
   const resetArticleList = useCallback(() => {
