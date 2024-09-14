@@ -1,6 +1,6 @@
 import { Global } from '@emotion/react';
 import { ThemeProvider } from '@emotion/react';
-import useThemeStore from './stores/useThemeStore';
+import useThemeStore from '@stores/useThemeStore';
 import { IsBorderActiveProvider } from '@contexts/IsBorderActiveContext';
 import { ActiveSectionTabProvider } from '@contexts/ActiveSectionTabContext';
 import { Header } from '@components/Header';

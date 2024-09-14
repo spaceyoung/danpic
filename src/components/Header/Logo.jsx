@@ -1,5 +1,5 @@
 import { useTheme, css } from '@emotion/react';
-import useThemeStore from '../../stores/useThemeStore';
+import useThemeStore from '@stores/useThemeStore';
 import logoLight from '@assets/logo-light.svg';
 import logoDark from '@assets/logo-dark.svg';
 

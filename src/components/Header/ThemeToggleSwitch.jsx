@@ -1,6 +1,6 @@
 import { useTheme, css } from '@emotion/react';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
-import useThemeStore from '../../stores/useThemeStore';
+import useThemeStore from '@stores/useThemeStore';
 
 function ThemeToggleSwitch() {
   const theme = useTheme();
