@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { mediaQuery } from '@styles/breakpoints';
 
-function Layout({ children }) {
+function MainLayout({ children }) {
   return (
     <main
       css={css`
@@ -22,4 +22,4 @@ function Layout({ children }) {
   );
 }
 
-export default Layout;
+export default MainLayout;
