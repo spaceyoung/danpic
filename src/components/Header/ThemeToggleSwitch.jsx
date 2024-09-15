@@ -1,18 +1,13 @@
+import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
-import { useThemeMode, useSetThemeMode } from '@contexts/ThemeContext';
+import useThemeStore from '@stores/useThemeStore';
 
 function ThemeToggleSwitch() {
-  const themeMode = useThemeMode();
-  const setThemeMode = useSetThemeMode();
   const theme = useTheme();
-
-  const handleThemeToggleSwitch = () => {
-    if (themeMode === 'light')
-      setThemeMode((prevThemeMode) => (prevThemeMode = 'dark'));
-    else if (themeMode === 'dark')
-      setThemeMode((prevThemeMode) => (prevThemeMode = 'light'));
-  };
+  const [themeMode, toggleThemeMode] = useThemeStore(
+    useShallow((state) => [state.themeMode, state.toggleThemeMode])
+  );
 
   return (
     <label
@@ -25,7 +20,7 @@ function ThemeToggleSwitch() {
       <input
         type="checkbox"
         checked={themeMode === 'light' ? false : true}
-        onChange={() => handleThemeToggleSwitch()}
+        onChange={() => toggleThemeMode()}
         css={css`
           width: 1px;
           height: 1px;

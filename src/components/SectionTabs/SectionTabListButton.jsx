@@ -1,9 +1,7 @@
 import { useRef } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
-import {
-  useActiveSectionTab,
-  useSetActiveSectionTab,
-} from '@contexts/ActiveSectionTabContext';
+import useActiveTabStore from '@stores/useActiveTabStore';
 import { mediaQuery } from '@styles/breakpoints';
 
 function SectionTabListButton({
@@ -14,9 +12,10 @@ function SectionTabListButton({
 }) {
   const scrollToFocusRef = useRef(null);
 
-  const activeSectionTab = useActiveSectionTab();
-  const setActiveSectionTab = useSetActiveSectionTab();
   const theme = useTheme();
+  const [activeSectionTab, setActiveSectionTab] = useActiveTabStore(
+    useShallow((state) => [state.activeSectionTab, state.setActiveSectionTab])
+  );
 
   const handleTabListButtonClick = (tabListButton) => {
     if (scrollStartClientX == scrollEndClientX) {

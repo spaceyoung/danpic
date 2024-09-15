@@ -1,11 +1,12 @@
+import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
-import { useThemeMode } from '@contexts/ThemeContext';
+import useThemeStore from '@stores/useThemeStore';
 import logoLight from '@assets/logo-light.svg';
 import logoDark from '@assets/logo-dark.svg';
 
 function Logo() {
-  const themeMode = useThemeMode();
   const theme = useTheme();
+  const [themeMode] = useThemeStore(useShallow((state) => [state.themeMode]));
 
   return (
     <h1>
