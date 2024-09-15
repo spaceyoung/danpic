@@ -5,12 +5,16 @@ import { LoadingMessage, ErrorMessage } from '@components/common';
 function ViewMoreButton({ isFetchLoading, fetchError, setClickCount }) {
   const theme = useTheme();
 
+  const increaseClickCount = () => {
+    setClickCount((prevClickCount) => prevClickCount + 1);
+  };
+
   if (isFetchLoading) return <LoadingMessage type={'유용한'} />;
   if (fetchError) return <ErrorMessage />;
 
   return (
     <button
-      onClick={() => setClickCount((prevClickCount) => prevClickCount + 1)}
+      onClick={increaseClickCount}
       css={css`
         display: flex;
         justify-content: center;
