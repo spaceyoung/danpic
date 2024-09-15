@@ -3,6 +3,7 @@ import useTranslate from '@hooks/useTranslate';
 import { Translation, TranslateButton } from '@components/common';
 
 function Article({ publishDate, headline }) {
+  const theme = useTheme();
   const [
     isTranslated,
     isTranslateLoading,
@@ -10,8 +11,6 @@ function Article({ publishDate, headline }) {
     translationText,
     translate,
   ] = useTranslate();
-
-  const theme = useTheme();
 
   const formattedPublishDate = publishDate.substring(0, 10);
 

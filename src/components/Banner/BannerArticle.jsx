@@ -11,6 +11,7 @@ import {
 } from '@components/common';
 
 function BannerArticle() {
+  const theme = useTheme();
   const [isFetchLoading, fetchError, article] = useFetchData(
     NYT_REQUEST_URL.TOP_STORIES
   );
@@ -21,8 +22,6 @@ function BannerArticle() {
     translationText,
     translate,
   ] = useTranslate();
-
-  const theme = useTheme();
 
   if (isFetchLoading) return <LoadingMessage type={'화제가 된'} />;
   if (fetchError) return <ErrorMessage />;
