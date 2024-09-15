@@ -1,6 +1,5 @@
 import { useShallow } from 'zustand/react/shallow';
-import { Global } from '@emotion/react';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider, Global } from '@emotion/react';
 import useThemeStore from '@stores/useThemeStore';
 import { Header } from '@components/Header';
 import { MainLayout } from '@components/Layout';
