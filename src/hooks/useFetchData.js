@@ -22,6 +22,7 @@ const useFetchData = (
 
   const fetchData = useCallback(async () => {
     setIsFetchLoading(true);
+    setFetchError(null);
     try {
       const response = await axiosNYT.get(`${requestURL}?${searchParams}`);
       // 섹션 탭 panel 기사 목록을 조회하는 경우에만 응답 결과를 누적
