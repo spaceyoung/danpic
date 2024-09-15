@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import Masonry from 'react-masonry-css';
 import { css } from '@emotion/react';
 import useActiveTabStore from '@stores/useActiveTabStore';
@@ -10,7 +11,9 @@ import { Article, ViewMoreButton } from '@components/SectionTabs';
 function ArticleList() {
   const [clickCount, setClickCount] = useState(0);
 
-  const { activeSectionTab } = useActiveTabStore();
+  const [activeSectionTab] = useActiveTabStore(
+    useShallow((state) => [state.activeSectionTab])
+  );
 
   const [isFetchLoading, fetchError, articleList] = useFetchData(
     NYT_REQUEST_URL.SEARCH,

@@ -1,3 +1,4 @@
+import { useShallow } from 'zustand/react/shallow';
 import { Global } from '@emotion/react';
 import { ThemeProvider } from '@emotion/react';
 import useThemeStore from '@stores/useThemeStore';
@@ -11,7 +12,7 @@ import globalStyle from '@styles/global';
 import { lightTheme, darkTheme } from '@styles/theme';
 
 function App() {
-  const { themeMode } = useThemeStore();
+  const [themeMode] = useThemeStore(useShallow((state) => [state.themeMode]));
 
   return (
     <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>

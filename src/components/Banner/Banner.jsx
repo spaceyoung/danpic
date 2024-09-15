@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
 import useBorderStore from '@stores/useBorderStore';
 import { BannerHeader, BannerArticle } from '@components/Banner';
@@ -7,7 +8,9 @@ function Banner() {
   const target = useRef(null);
 
   const theme = useTheme();
-  const { setIsBorderActive } = useBorderStore();
+  const [setIsBorderActive] = useBorderStore(
+    useShallow((state) => [state.setIsBorderActive])
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(

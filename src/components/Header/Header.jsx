@@ -1,3 +1,4 @@
+import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
 import useBorderStore from '@stores/useBorderStore';
 import { Logo, ThemeToggleSwitch } from '@components/Header';
@@ -5,7 +6,9 @@ import { mediaQuery } from '@styles/breakpoints';
 
 function Header() {
   const theme = useTheme();
-  const { isBorderActive } = useBorderStore();
+  const [isBorderActive] = useBorderStore(
+    useShallow((state) => [state.isBorderActive])
+  );
 
   return (
     <header

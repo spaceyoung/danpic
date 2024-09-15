@@ -1,3 +1,4 @@
+import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
 import useThemeStore from '@stores/useThemeStore';
 import { formatDateWithDayofWeek } from '@utils/formattingText';
@@ -6,7 +7,7 @@ import logoDark from '@assets/logo-dark.svg';
 
 function BannerHeader() {
   const theme = useTheme();
-  const { themeMode } = useThemeStore();
+  const [themeMode] = useThemeStore(useShallow((state) => [state.themeMode]));
 
   const dateOfToday = formatDateWithDayofWeek();
 

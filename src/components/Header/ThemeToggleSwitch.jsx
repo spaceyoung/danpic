@@ -1,10 +1,13 @@
+import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import useThemeStore from '@stores/useThemeStore';
 
 function ThemeToggleSwitch() {
   const theme = useTheme();
-  const { themeMode, toggleThemeMode } = useThemeStore();
+  const [themeMode, toggleThemeMode] = useThemeStore(
+    useShallow((state) => [state.themeMode, state.toggleThemeMode])
+  );
 
   return (
     <label
