@@ -2,8 +2,6 @@ import { useShallow } from 'zustand/react/shallow';
 import { Global } from '@emotion/react';
 import { ThemeProvider } from '@emotion/react';
 import useThemeStore from '@stores/useThemeStore';
-import { IsBorderActiveProvider } from '@contexts/IsBorderActiveContext';
-import { ActiveSectionTabProvider } from '@contexts/ActiveSectionTabContext';
 import { Header } from '@components/Header';
 import { Layout } from '@components/Layout';
 import { Banner } from '@components/Banner';
@@ -16,17 +14,13 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
-      <IsBorderActiveProvider>
-        <Global styles={globalStyle} />
-        <Header />
-        <Layout>
-          <Banner />
-          <ActiveSectionTabProvider>
-            <SectionTabList />
-            <ArticleList />
-          </ActiveSectionTabProvider>
-        </Layout>
-      </IsBorderActiveProvider>
+      <Global styles={globalStyle} />
+      <Header />
+      <Layout>
+        <Banner />
+        <SectionTabList />
+        <ArticleList />
+      </Layout>
     </ThemeProvider>
   );
 }
