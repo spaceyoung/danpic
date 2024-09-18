@@ -2,6 +2,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
 import useThemeStore from '@stores/useThemeStore';
 import { formatDateWithDayofWeek } from '@utils/formattingText';
+import { mediaQuery } from '@styles/breakpoints';
 import logoLight from '@assets/logo-light.svg';
 import logoDark from '@assets/logo-dark.svg';
 
@@ -30,7 +31,7 @@ function BannerHeader() {
         css={css`
           display: flex;
           align-items: center;
-          gap: 0.75rem;
+          gap: 0.625rem;
         `}
       >
         <figure>
@@ -40,6 +41,9 @@ function BannerHeader() {
             css={css`
               width: 1.75rem;
               margin-bottom: 0.125rem;
+              ${mediaQuery[1]} {
+                width: 1.625rem;
+              }
             `}
           />
         </figure>

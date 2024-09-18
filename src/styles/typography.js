@@ -1,20 +1,28 @@
+import { mediaQuery } from '@styles/breakpoints';
+
 const typography = {
   // 로고
   logo: {
     fontWeight: '800',
-    fontSize: '1.5rem',
+    fontSize: '1.375rem',
   },
 
   // 섹션 헤더 제목
   title1: {
     fontWeight: '700',
     fontSize: '2rem',
+    [mediaQuery[1]]: {
+      fontSize: '1.875rem',
+    },
   },
   // 배너 기사 제목
   title2: {
     fontWeight: '600',
     fontSize: '1.375rem',
     lineHeight: '1.3',
+    [mediaQuery[1]]: {
+      fontSize: '1.25rem',
+    },
   },
   // 메인 콘텐츠 기사 제목
   title3: {
