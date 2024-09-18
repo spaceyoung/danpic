@@ -14,7 +14,7 @@ function Header() {
     <header
       css={css`
         width: 100%;
-        height: 4.5rem;
+        height: 3.75rem;
         padding: 0 2rem;
         border-bottom: 1px solid
           ${!isBorderActive

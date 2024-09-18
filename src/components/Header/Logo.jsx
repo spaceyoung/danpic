@@ -23,7 +23,7 @@ function Logo() {
             src={themeMode === 'light' ? logoLight : logoDark}
             alt="단픽"
             css={css`
-              width: 1.375rem;
+              width: 1.25rem;
             `}
           />
         </figure>

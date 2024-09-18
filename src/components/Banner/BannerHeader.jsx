@@ -2,6 +2,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
 import useThemeStore from '@stores/useThemeStore';
 import { formatDateWithDayofWeek } from '@utils/formattingText';
+import { mediaQuery } from '@styles/breakpoints';
 import logoLight from '@assets/logo-light.svg';
 import logoDark from '@assets/logo-dark.svg';
 
@@ -38,7 +39,7 @@ function BannerHeader() {
             src={themeMode === 'light' ? logoLight : logoDark}
             alt="단픽"
             css={css`
-              width: 1.75rem;
+              width: 1.5rem;
               margin-bottom: 0.125rem;
             `}
           />
