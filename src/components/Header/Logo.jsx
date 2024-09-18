@@ -15,7 +15,7 @@ function Logo() {
         css={css`
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.375rem;
         `}
       >
         <figure>
