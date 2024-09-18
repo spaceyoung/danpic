@@ -2,7 +2,7 @@ const typography = {
   // 로고
   logo: {
     fontWeight: '800',
-    fontSize: '1.5rem',
+    fontSize: '1.375rem',
   },
 
   // 섹션 헤더 제목
