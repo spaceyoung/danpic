@@ -9,6 +9,10 @@ function ScrollToTopButton() {
     useShallow((state) => [state.isScrolled])
   );
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <aside
       css={css`
@@ -19,6 +23,7 @@ function ScrollToTopButton() {
       `}
     >
       <button
+        onClick={scrollToTop}
         css={css`
           display: flex;
           justify-content: center;
