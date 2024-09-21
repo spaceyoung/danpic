@@ -5,6 +5,7 @@ import { Header } from '@components/Header';
 import { MainLayout } from '@components/Layout';
 import { Banner } from '@components/Banner';
 import { SectionTabList, ArticleList } from '@components/SectionTabs';
+import { ScrollToTopButton } from '@components/common';
 import globalStyle from '@styles/global';
 import { lightTheme, darkTheme } from '@styles/theme';
 
@@ -19,6 +20,7 @@ function App() {
         <Banner />
         <SectionTabList />
         <ArticleList />
+        <ScrollToTopButton />
       </MainLayout>
     </ThemeProvider>
   );
