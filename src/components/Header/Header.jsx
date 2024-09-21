@@ -1,13 +1,13 @@
 import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
-import useBorderStore from '@stores/useBorderStore';
+import useScrollStore from '@stores/useScrollStore';
 import { Logo, ThemeToggleSwitch } from '@components/Header';
 import { mediaQuery } from '@styles/breakpoints';
 
 function Header() {
   const theme = useTheme();
-  const [isBorderActive] = useBorderStore(
-    useShallow((state) => [state.isBorderActive])
+  const [isScrolled] = useScrollStore(
+    useShallow((state) => [state.isScrolled])
   );
 
   return (
@@ -17,7 +17,7 @@ function Header() {
         height: 3.75rem;
         padding: 0 2rem;
         border-bottom: 1px solid
-          ${!isBorderActive
+          ${isScrolled
             ? theme.color.border.header
             : theme.color.background.default};
         background-color: ${theme.color.background.default};
