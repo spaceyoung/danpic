@@ -1,15 +1,21 @@
+import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
 import { MdArrowUpward } from 'react-icons/md';
+import useScrollStore from '@stores/useScrollStore';
 
 function ScrollToTopButton() {
   const theme = useTheme();
+  const [isScrolled] = useScrollStore(
+    useShallow((state) => [state.isScrolled])
+  );
 
   return (
     <aside
       css={css`
         position: fixed;
         right: 1.25rem;
-        bottom: 1.25rem;
+        bottom: ${isScrolled ? '1.25rem' : '-2.75rem'};
+        transition: bottom 0.4s;
       `}
     >
       <button
