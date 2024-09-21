@@ -25,6 +25,20 @@ function ScrollToTopButton() {
           box-shadow: 0.2rem 0.2rem 0.625rem 0.2rem
             ${theme.color.shadow.default};
           ${theme.typography.label1}
+          @keyframes updown {
+            0% {
+              transform: translateY(0.125rem);
+            }
+            50% {
+              transform: translateY(-0.125rem);
+            }
+            100% {
+              transform: translateY(0.125rem);
+            }
+          }
+          :hover > * {
+            animation: updown 1.5s infinite;
+          }
         `}
       >
         <MdArrowUpward />
