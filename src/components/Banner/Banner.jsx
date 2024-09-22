@@ -1,20 +1,20 @@
 import { useRef, useEffect } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
-import useBorderStore from '@stores/useBorderStore';
+import useScrollStore from '@stores/useScrollStore';
 import { BannerHeader, BannerArticle } from '@components/Banner';
 
 function Banner() {
   const target = useRef(null);
 
   const theme = useTheme();
-  const [setIsBorderActive] = useBorderStore(
-    useShallow((state) => [state.setIsBorderActive])
+  const [setIsScrolled] = useScrollStore(
+    useShallow((state) => [state.setIsScrolled])
   );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => setIsBorderActive(entries[0].isIntersecting),
+      (entries) => setIsScrolled(!entries[0].isIntersecting),
       { threshold: 1.0 } // target 요소가 100% 보이는 경우에만 observer 실행
     );
     if (target.current) observer.observe(target.current); // 관찰하는 target 요소가 있을 경우에만 실행

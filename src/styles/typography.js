@@ -49,7 +49,7 @@ const typography = {
     fontSize: '0.875rem',
   },
 
-  // 탭 버튼
+  // 탭 목록, 탑 버튼
   label1: {
     fontWeight: '500',
     fontSize: '1.25rem',
