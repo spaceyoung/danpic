@@ -21,7 +21,21 @@
     "noUnusedLocals": true, // 사용되지 않는 지역 변수 알림
     "noUnusedParameters": true, // 사용되지 않는 파라미터 알림
     "noFallthroughCasesInSwitch": true, //switch 구문에서 fallThrough( break, return, throw )가 비어있는 경우 error 보고
-    "allowSyntheticDefaultImports": true // default export가 없는 모듈에서 default imports 허용
+    "allowSyntheticDefaultImports": true, // default export가 없는 모듈에서 default imports 허용
+
+    "baseUrl": ".",
+    "paths": {
+      "@": ["src/*"],
+      "@apis/*": ["src/apis/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@constants/*": ["src/constants/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@stores/*": ["src/stores/*"],
+      "@styles/*": ["src/styles/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
