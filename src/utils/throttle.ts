@@ -1,11 +1,16 @@
-const throttle = (callback, delay) => {
-  let timer;
+import { useRef } from 'react';
 
-  return (...args) => {
-    if (timer) return;
-    timer = setTimeout(() => {
+const throttle = <T extends any[]>(
+  callback: (...args: T) => void,
+  delay: number
+) => {
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  return (...args: T) => {
+    if (timer.current) return;
+    timer.current = setTimeout(() => {
       callback(...args);
-      timer = null;
+      timer.current = null;
     }, delay);
   };
 };
