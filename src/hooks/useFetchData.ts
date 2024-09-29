@@ -2,10 +2,10 @@ import { useState, useEffect, useCallback } from 'react';
 import { axiosNYT } from '@apis/axios';
 
 const useFetchData = (
-  requestURL,
-  section = null,
-  pageNumber = 0,
-  deps = []
+  requestURL: string,
+  section: string = '',
+  pageNumber: number = 0,
+  deps: [string, number] | [] = []
 ) => {
   const [isFetchLoading, setIsFetchLoading] = useState(false);
   const [fetchError, setFetchError] = useState(null);
@@ -16,7 +16,11 @@ const useFetchData = (
   // .toString() 메서드를 통해 쿼리 파라미터를 문자열로 변환
   const searchParams = new URLSearchParams(
     section
-      ? { fq: `section_name:("${section}")`, page: pageNumber, sort: 'newest' }
+      ? {
+          fq: `section_name:("${section}")`,
+          page: `${pageNumber}`,
+          sort: 'newest',
+        }
       : ''
   ).toString();
 

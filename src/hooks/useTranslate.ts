@@ -7,7 +7,7 @@ const useTranslate = () => {
   const [translateError, setTranslateError] = useState(null);
   const [translationText, setTranslationText] = useState(null);
 
-  const translate = async (originalText) => {
+  const translate = async (originalText: string) => {
     if (!translationText) {
       setIsTranslateLoading(true);
       try {
