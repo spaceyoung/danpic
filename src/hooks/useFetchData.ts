@@ -8,8 +8,8 @@ const useFetchData = <T>(
   deps: [string, number] | [] = []
 ): [boolean, any, T[]] => {
   const [isFetchLoading, setIsFetchLoading] = useState(false);
-  const [fetchError, setFetchError] = useState(null);
-  const [fetchedData, setFetchedData] = useState<T[]>([]);
+  const [fetchError, setFetchError] = useState<any>(null);
+  const [fetchedData, setFetchedData] = useState<any>([]);
 
   // section 값을 전달받았다면(섹션 탭 panel 기사) 해당하는 쿼리 파라미터를
   // 그렇지 않으면(배너 기사) 빈 값을 생성 후

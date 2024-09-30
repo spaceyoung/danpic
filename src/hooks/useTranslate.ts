@@ -10,8 +10,8 @@ const useTranslate = (): [
 ] => {
   const [isTranslated, setIsTranslated] = useState(false);
   const [isTranslateLoading, setIsTranslateLoading] = useState(false);
-  const [translateError, setTranslateError] = useState(null);
-  const [translationText, setTranslationText] = useState('');
+  const [translateError, setTranslateError] = useState<any>(null);
+  const [translationText, setTranslationText] = useState<any>('');
 
   const translate = async (originalText: string) => {
     if (!translationText) {
