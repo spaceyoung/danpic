@@ -5,7 +5,7 @@ import useScrollStore from '@stores/useScrollStore';
 import { BannerHeader, BannerArticle } from '@components/Banner';
 
 function Banner() {
-  const target = useRef(null);
+  const target = useRef<HTMLElement>(null);
 
   const theme = useTheme();
   const [setIsScrolled] = useScrollStore(

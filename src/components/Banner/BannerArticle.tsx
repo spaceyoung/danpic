@@ -12,7 +12,7 @@ import {
 
 function BannerArticle() {
   const theme = useTheme();
-  const [isFetchLoading, fetchError, article] = useFetchData(
+  const [isFetchLoading, fetchError, article] = useFetchData<BannerArticle>(
     NYT_REQUEST_URL.TOP_STORIES
   );
   const [
@@ -37,7 +37,7 @@ function BannerArticle() {
             ${theme.typography.detail1}
           `}
         >
-          {article.section}
+          {article[0]?.section}
         </span>
         <p
           css={css`
@@ -45,7 +45,7 @@ function BannerArticle() {
             ${theme.typography.title2}
           `}
         >
-          {article.title}
+          {article[0]?.title}
         </p>
         <Translation
           isTranslated={isTranslated}
@@ -64,11 +64,11 @@ function BannerArticle() {
         `}
       >
         <TranslateButton
-          headline={article.title}
+          headline={article[0]?.title}
           isTranslated={isTranslated}
           translate={translate}
         />
-        <ArticleLinkButton articleLink={article.url} />
+        <ArticleLinkButton articleLink={article[0]?.url} />
       </div>
     </>
   );
