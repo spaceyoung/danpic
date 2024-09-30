@@ -2,7 +2,12 @@ import { useTheme, css } from '@emotion/react';
 import useTranslate from '@hooks/useTranslate';
 import { Translation, TranslateButton } from '@components/common';
 
-function Article({ publishDate, headline }) {
+interface ArticleProps {
+  publishDate: string;
+  headline: string;
+}
+
+function Article({ publishDate, headline }: ArticleProps) {
   const theme = useTheme();
   const [
     isTranslated,

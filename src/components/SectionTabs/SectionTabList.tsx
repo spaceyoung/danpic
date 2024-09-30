@@ -6,7 +6,7 @@ import { SectionTabListButton } from '@components/SectionTabs';
 import { mediaQuery } from '@styles/breakpoints';
 
 function SectionTabList() {
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLUListElement>(null);
 
   const [
     isScrolling,
@@ -21,7 +21,7 @@ function SectionTabList() {
     <ul
       ref={scrollRef}
       onMouseDown={handleScrollStart}
-      onMouseMove={isScrolling ? handleScrollMove : null}
+      onMouseMove={isScrolling ? handleScrollMove : undefined}
       onMouseUp={handleScrollEnd}
       onMouseLeave={handleScrollEnd}
       css={css`
