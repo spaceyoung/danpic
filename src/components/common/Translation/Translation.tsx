@@ -5,6 +5,7 @@ interface TranslationProps {
   isTranslateLoading: boolean;
   translateError: string;
   translationText: string;
+  css?: any;
 }
 
 function Translation({
