@@ -8,8 +8,8 @@ const useTranslate = (): [
   string,
   (originalText: string) => void,
 ] => {
-  const [isTranslated, setIsTranslated] = useState(false);
-  const [isTranslateLoading, setIsTranslateLoading] = useState(false);
+  const [isTranslated, setIsTranslated] = useState<boolean>(false);
+  const [isTranslateLoading, setIsTranslateLoading] = useState<boolean>(false);
   const [translateError, setTranslateError] = useState<any>(null);
   const [translationText, setTranslationText] = useState<any>('');
 

@@ -7,7 +7,7 @@ const useFetchData = <T>(
   pageNumber: number = 0,
   deps: [string, number] | [] = []
 ): [boolean, any, T[]] => {
-  const [isFetchLoading, setIsFetchLoading] = useState(false);
+  const [isFetchLoading, setIsFetchLoading] = useState<boolean>(false);
   const [fetchError, setFetchError] = useState<any>(null);
   const [fetchedData, setFetchedData] = useState<any>([]);
 

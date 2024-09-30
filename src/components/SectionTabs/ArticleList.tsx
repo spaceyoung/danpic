@@ -9,7 +9,7 @@ import { LoadingMessage, ErrorMessage } from '@components/common';
 import { Article, ViewMoreButton } from '@components/SectionTabs';
 
 function ArticleList() {
-  const [clickCount, setClickCount] = useState(0);
+  const [clickCount, setClickCount] = useState<number>(0);
 
   const [activeSectionTab] = useActiveTabStore(
     useShallow((state) => [state.activeSectionTab])

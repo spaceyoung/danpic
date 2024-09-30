@@ -11,10 +11,10 @@ const useTouchScroll = (
   React.MouseEventHandler<HTMLUListElement>,
   React.MouseEventHandler<HTMLUListElement>,
 ] => {
-  const [isScrolling, setIsScrolling] = useState(false); // 대상을 스크롤 중인지
-  const [scrollStartPositionX, setScrollStartPositionX] = useState(0); // 기존에 스크롤 된 위치를 포함한 스크롤 시작 위치 x좌표
-  const [scrollStartClientX, setScrollStartClientX] = useState(0); // 브라우저 뷰포트 기준 스크롤 시작 위치 x좌표
-  const [scrollEndClientX, setScrollEndClientX] = useState(0); // 브라우저 뷰포트 기준 스크롤 끝난 위치 x좌표
+  const [isScrolling, setIsScrolling] = useState<boolean>(false); // 대상을 스크롤 중인지
+  const [scrollStartPositionX, setScrollStartPositionX] = useState<number>(0); // 기존에 스크롤 된 위치를 포함한 스크롤 시작 위치 x좌표
+  const [scrollStartClientX, setScrollStartClientX] = useState<number>(0); // 브라우저 뷰포트 기준 스크롤 시작 위치 x좌표
+  const [scrollEndClientX, setScrollEndClientX] = useState<number>(0); // 브라우저 뷰포트 기준 스크롤 끝난 위치 x좌표
 
   const handleScrollStart = (e: React.MouseEvent<HTMLUListElement>): void => {
     if (scrollRef.current) {
