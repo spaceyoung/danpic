@@ -1,7 +1,11 @@
 import { useTheme, css } from '@emotion/react';
 import BeatLoader from 'react-spinners/BeatLoader';
 
-function LoadingMessage({ type }) {
+interface LoadingMessageProps {
+  type: string;
+}
+
+function LoadingMessage({ type }: LoadingMessageProps) {
   const theme = useTheme();
 
   return (
