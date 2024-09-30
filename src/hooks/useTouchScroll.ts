@@ -19,7 +19,7 @@ const useTouchScroll = (
   const handleScrollStart = (e: React.MouseEvent<HTMLUListElement>): void => {
     if (scrollRef.current) {
       setIsScrolling(true);
-      setScrollStartPositionX(e.clientX + scrollRef.current!.scrollLeft);
+      setScrollStartPositionX(e.clientX + scrollRef.current.scrollLeft);
       setScrollStartClientX(e.clientX);
     }
   };
