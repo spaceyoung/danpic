@@ -1,7 +1,12 @@
+import React from 'react';
 import { css } from '@emotion/react';
 import { mediaQuery } from '@styles/breakpoints';
 
-function MainLayout({ children }) {
+interface MainLayoutProps {
+  children: React.ReactNode;
+}
+
+function MainLayout({ children }: MainLayoutProps) {
   return (
     <main
       css={css`

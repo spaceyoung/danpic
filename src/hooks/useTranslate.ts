@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import { axiosGoogleTranslate } from '@apis/axios';
 
-const useTranslate = () => {
-  const [isTranslated, setIsTranslated] = useState(false);
-  const [isTranslateLoading, setIsTranslateLoading] = useState(false);
-  const [translateError, setTranslateError] = useState(null);
-  const [translationText, setTranslationText] = useState(null);
+const useTranslate = (): [
+  boolean,
+  boolean,
+  any,
+  string,
+  (originalText: string) => void,
+] => {
+  const [isTranslated, setIsTranslated] = useState<boolean>(false);
+  const [isTranslateLoading, setIsTranslateLoading] = useState<boolean>(false);
+  const [translateError, setTranslateError] = useState<any>(null);
+  const [translationText, setTranslationText] = useState<any>('');
 
-  const translate = async (originalText) => {
+  const translate = async (originalText: string) => {
     if (!translationText) {
       setIsTranslateLoading(true);
       try {

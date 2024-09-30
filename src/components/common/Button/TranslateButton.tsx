@@ -1,7 +1,17 @@
 import { css } from '@emotion/react';
 import { MdGTranslate } from 'react-icons/md';
 
-function TranslateButton({ headline, isTranslated, translate }) {
+interface TranslateButtonProps {
+  headline: string;
+  isTranslated: boolean;
+  translate: (originalText: string) => void;
+}
+
+function TranslateButton({
+  headline,
+  isTranslated,
+  translate,
+}: TranslateButtonProps) {
   return (
     <button
       onClick={() => translate(headline)}

@@ -1,7 +1,11 @@
 import { css } from '@emotion/react';
 import { MdOpenInNew } from 'react-icons/md';
 
-function ArticleLinkButton({ articleLink }) {
+interface ArticleLinkButtonProps {
+  articleLink: string;
+}
+
+function ArticleLinkButton({ articleLink }: ArticleLinkButtonProps) {
   return (
     <a
       href={articleLink}

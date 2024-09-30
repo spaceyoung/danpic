@@ -1,12 +1,20 @@
 import { TranslationDivider } from '@components/common';
 
+interface TranslationProps {
+  isTranslated: boolean;
+  isTranslateLoading: boolean;
+  translateError: string;
+  translationText: string;
+  css?: any;
+}
+
 function Translation({
   isTranslated,
   isTranslateLoading,
   translateError,
   translationText,
   ...args
-}) {
+}: TranslationProps) {
   if (isTranslateLoading)
     return (
       <>

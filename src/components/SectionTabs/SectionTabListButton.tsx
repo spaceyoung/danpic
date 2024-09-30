@@ -4,22 +4,29 @@ import { useTheme, css } from '@emotion/react';
 import useActiveTabStore from '@stores/useActiveTabStore';
 import { mediaQuery } from '@styles/breakpoints';
 
+interface SectionTabListButtonProps {
+  sectionTab: string;
+  isScrolling: boolean;
+  scrollStartClientX: number;
+  scrollEndClientX: number;
+}
+
 function SectionTabListButton({
   sectionTab,
   isScrolling,
   scrollStartClientX,
   scrollEndClientX,
-}) {
-  const scrollToFocusRef = useRef(null);
+}: SectionTabListButtonProps) {
+  const scrollToFocusRef = useRef<HTMLButtonElement>(null);
 
   const theme = useTheme();
   const [activeSectionTab, setActiveSectionTab] = useActiveTabStore(
     useShallow((state) => [state.activeSectionTab, state.setActiveSectionTab])
   );
 
-  const handleButtonClick = (tab) => {
-    if (scrollStartClientX == scrollEndClientX) {
-      setActiveSectionTab(tab);
+  const handleButtonClick = (sectionTab: string) => {
+    if (scrollToFocusRef.current && scrollStartClientX == scrollEndClientX) {
+      setActiveSectionTab(sectionTab);
       scrollToFocusRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',

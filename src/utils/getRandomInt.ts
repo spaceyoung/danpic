@@ -1,4 +1,4 @@
-const getRandomInt = (max) => {
+const getRandomInt = (max: number): number => {
   const randomInt = Math.floor(Math.random() * max);
   return randomInt;
 };

@@ -1,6 +1,9 @@
 import { create } from 'zustand';
 
-const useThemeStore = create((set) => ({
+const useThemeStore = create<{
+  themeMode: 'light' | 'dark';
+  toggleThemeMode: () => void;
+}>((set) => ({
   themeMode: 'light',
   toggleThemeMode: () =>
     set((state) => ({
