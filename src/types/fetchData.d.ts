@@ -13,15 +13,15 @@ interface Person {
   middlename: string;
   organization: string;
   qualifier: string;
-  rank: integer;
+  rank: number;
   role: string;
   title: string;
 }
 
 interface Legacy {
   xlarge: string;
-  xlargewidth: integer;
-  xlargeheight: integer;
+  xlargewidth: number;
+  xlargeheight: number;
 }
 
 interface ByLine {
@@ -33,7 +33,7 @@ interface ByLine {
 interface KeyWords {
   major: string;
   name: string;
-  rank: integer;
+  rank: number;
   value: string;
 }
 
@@ -42,13 +42,13 @@ interface Multimedia {
   subtype: string;
   type: string;
   url: string;
-  height: integer;
-  width: integer;
+  height: number;
+  width: number;
   format?: string;
   credit?: string;
   crop_name?: string;
   subType?: string;
-  rank?: integer;
+  rank?: number;
   legacy: Legacy;
   copyright?: string;
 }
@@ -70,7 +70,7 @@ interface SectionTabsArticle {
   type_of_material: string;
   uri: string;
   web_url: string;
-  word_count: integer;
+  word_count: number;
   _id: string;
 }
 
