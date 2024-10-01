@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useShallow } from 'zustand/react/shallow';
-import Masonry from 'react-masonry-css';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { css } from '@emotion/react';
 import useActiveTabStore from '@stores/useActiveTabStore';
 import useFetchData from '@hooks/useFetchData';
@@ -45,30 +45,28 @@ function ArticleList() {
           padding: 1.5rem 0;
         `}
       >
-        <Masonry
-          breakpointCols={{
-            default: 2,
-            567: 1,
-          }}
-          css={css`
-            display: flex;
-            margin-bottom: 1.5rem;
-            > *:not(:last-child) {
-              margin-right: 1.25rem;
-            }
-            > * > *:not(:last-child) {
-              margin-bottom: 1.25rem;
-            }
-          `}
-        >
-          {articleList.map((article) => (
-            <Article
-              key={article._id}
-              publishDate={article.pub_date}
-              headline={article.headline.main}
-            />
-          ))}
-        </Masonry>
+        <ResponsiveMasonry columnsCountBreakPoints={{ 567: 1, 568: 2 }}>
+          <Masonry
+            css={css`
+              display: flex;
+              margin-bottom: 1.5rem;
+              > *:not(:last-child) {
+                margin-right: 1.25rem;
+              }
+              > * > *:not(:last-child) {
+                margin-bottom: 1.25rem;
+              }
+            `}
+          >
+            {articleList.map((article) => (
+              <Article
+                key={article._id}
+                publishDate={article.pub_date}
+                headline={article.headline.main}
+              />
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
         <ViewMoreButton
           isFetchLoading={isFetchLoading}
           fetchError={fetchError}
