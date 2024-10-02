@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import { axiosNYT } from '@apis/axios';
 
-const useFetchData = <T>(
+const useFetchData = (
   requestURL: string,
   section: string = '',
   pageNumber: number = 0,
   deps: [string, number] | [] = []
-): [boolean, any, T[]] => {
+) => {
   const [isFetchLoading, setIsFetchLoading] = useState<boolean>(false);
   const [fetchError, setFetchError] = useState<any>(null);
   const [fetchedData, setFetchedData] = useState<any>([]);
@@ -41,7 +41,7 @@ const useFetchData = <T>(
     fetchData();
   }, [fetchData]);
 
-  return [isFetchLoading, fetchError, fetchedData];
+  return { isFetchLoading, fetchError, fetchedData };
 };
 
 export default useFetchData;

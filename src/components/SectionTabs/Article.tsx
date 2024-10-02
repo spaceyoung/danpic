@@ -9,13 +9,14 @@ interface ArticleProps {
 
 function Article({ publishDate, headline }: ArticleProps) {
   const theme = useTheme();
-  const [
+
+  const {
     isTranslated,
     isTranslateLoading,
     translateError,
     translationText,
     translate,
-  ] = useTranslate();
+  } = useTranslate();
 
   const formattedPublishDate = publishDate.substring(0, 10);
 
