@@ -24,7 +24,7 @@ function SectionTabListButton({
     useShallow((state) => [state.activeSectionTab, state.setActiveSectionTab])
   );
 
-  const handleButtonClick = (sectionTab: string) => {
+  const handleSectionTabListButtonClick = (sectionTab: string) => {
     if (scrollToFocusRef.current && scrollStartClientX == scrollEndClientX) {
       setActiveSectionTab(sectionTab);
       scrollToFocusRef.current.scrollIntoView({
@@ -38,7 +38,7 @@ function SectionTabListButton({
   return (
     <button
       ref={scrollToFocusRef}
-      onClick={() => handleButtonClick(sectionTab)}
+      onClick={() => handleSectionTabListButtonClick(sectionTab)}
       css={css`
         height: 3rem;
         padding: 0 1.5rem;
