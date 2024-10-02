@@ -25,7 +25,7 @@ function SectionTabListButton({
   );
 
   const handleSectionTabListButtonClick = (sectionTab: string) => {
-    if (scrollToFocusRef.current && scrollStartClientX == scrollEndClientX) {
+    if (scrollToFocusRef.current && scrollStartClientX === scrollEndClientX) {
       setActiveSectionTab(sectionTab);
       scrollToFocusRef.current.scrollIntoView({
         behavior: 'smooth',
