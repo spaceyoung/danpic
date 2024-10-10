@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import { axiosGoogleTranslate } from '@apis/axios';
 
-const useTranslate = (): [
-  boolean,
-  boolean,
-  any,
-  string,
-  (originalText: string) => void,
-] => {
+const useTranslate = () => {
   const [isTranslated, setIsTranslated] = useState<boolean>(false);
   const [isTranslateLoading, setIsTranslateLoading] = useState<boolean>(false);
   const [translateError, setTranslateError] = useState<any>(null);
@@ -33,13 +27,13 @@ const useTranslate = (): [
     }
   };
 
-  return [
+  return {
     isTranslated,
     isTranslateLoading,
     translateError,
     translationText,
     translate,
-  ];
+  };
 };
 
 export default useTranslate;

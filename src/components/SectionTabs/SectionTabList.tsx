@@ -8,14 +8,14 @@ import { mediaQuery } from '@styles/breakpoints';
 function SectionTabList() {
   const scrollRef = useRef<HTMLUListElement>(null);
 
-  const [
+  const {
     isScrolling,
     scrollStartClientX,
     scrollEndClientX,
     handleScrollStart,
     handleScrollMove,
     handleScrollEnd,
-  ] = useTouchScroll(scrollRef);
+  } = useTouchScroll(scrollRef);
 
   return (
     <ul

@@ -25,7 +25,7 @@ function ThemeToggleSwitch() {
       <input
         type="checkbox"
         checked={themeMode === 'light' ? false : true}
-        onChange={() => toggleThemeMode()}
+        onChange={toggleThemeMode}
         css={css`
           width: 1px;
           height: 1px;

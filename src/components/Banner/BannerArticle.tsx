@@ -12,16 +12,20 @@ import {
 
 function BannerArticle() {
   const theme = useTheme();
-  const [isFetchLoading, fetchError, article] = useFetchData<BannerArticle>(
-    NYT_REQUEST_URL.TOP_STORIES
-  );
-  const [
+
+  const {
+    isFetchLoading,
+    fetchError,
+    fetchedData: article,
+  } = useFetchData(NYT_REQUEST_URL.TOP_STORIES);
+
+  const {
     isTranslated,
     isTranslateLoading,
     translateError,
     translationText,
     translate,
-  ] = useTranslate();
+  } = useTranslate();
 
   if (isFetchLoading) return <LoadingMessage type={'화제가 된'} />;
   if (fetchError) return <ErrorMessage />;
