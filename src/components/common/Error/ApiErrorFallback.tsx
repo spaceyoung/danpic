@@ -35,6 +35,7 @@ function ApiErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
         잠시 후에 다시 시도해 주세요.
       </p>
       <button
+        onClick={resetErrorBoundary}
         css={css`
           padding: 0.5rem 1rem;
           border-radius: 0.5rem;
