@@ -49,6 +49,7 @@ export const lightThemeColor = {
     banner: colorSystem.blue050,
     article: colorSystem.grayscale000,
     viewMoreButton: colorSystem.grayscale050,
+    retryButton: colorSystem.blue600,
     scrollToTopButton: colorSystem.blue050,
   },
   border: {
@@ -61,6 +62,7 @@ export const lightThemeColor = {
   button: {
     banner: colorSystem.blue600,
     scrollToTopButton: colorSystem.blue600,
+    retryButton: colorSystem.grayscale050,
   },
 };
 
@@ -83,6 +85,7 @@ export const darkThemeColor = {
     banner: colorSystem.blue600,
     article: colorSystem.grayscale750,
     viewMoreButton: colorSystem.grayscale700,
+    retryButton: colorSystem.blue400,
     scrollToTopButton: colorSystem.blue600,
   },
   border: {
@@ -95,5 +98,6 @@ export const darkThemeColor = {
   button: {
     banner: colorSystem.blue050,
     scrollToTopButton: colorSystem.blue050,
+    retryButton: colorSystem.grayscale050,
   },
 };
