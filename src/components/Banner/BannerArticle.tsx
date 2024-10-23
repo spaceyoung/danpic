@@ -4,7 +4,6 @@ import useTranslate from '@hooks/useTranslate';
 import { NYT_REQUEST_URL } from '@constants/api';
 import {
   LoadingMessage,
-  ErrorMessage,
   Translation,
   TranslateButton,
   ArticleLinkButton,
@@ -13,11 +12,9 @@ import {
 function BannerArticle() {
   const theme = useTheme();
 
-  const {
-    isFetchLoading,
-    fetchError,
-    fetchedData: article,
-  } = useFetchData(NYT_REQUEST_URL.TOP_STORIES);
+  const { isFetchLoading, fetchedData: article } = useFetchData(
+    NYT_REQUEST_URL.TOP_STORIES
+  );
 
   const {
     isTranslated,
@@ -28,7 +25,6 @@ function BannerArticle() {
   } = useTranslate();
 
   if (isFetchLoading) return <LoadingMessage type={'화제가 된'} />;
-  if (fetchError) return <ErrorMessage />;
   if (!article) return null;
 
   return (

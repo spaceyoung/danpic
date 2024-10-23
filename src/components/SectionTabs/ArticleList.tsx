@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import useActiveTabStore from '@stores/useActiveTabStore';
 import useFetchData from '@hooks/useFetchData';
 import { NYT_REQUEST_URL } from '@constants/api';
-import { LoadingMessage, ErrorMessage } from '@components/common';
+import { LoadingMessage } from '@components/common';
 import { Article, ViewMoreButton } from '@components/SectionTabs';
 
 function ArticleList() {
@@ -15,11 +15,7 @@ function ArticleList() {
     useShallow((state) => [state.activeSectionTab])
   );
 
-  const {
-    isFetchLoading,
-    fetchError,
-    fetchedData: articleList,
-  } = useFetchData(
+  const { isFetchLoading, fetchedData: articleList } = useFetchData(
     NYT_REQUEST_URL.SEARCH,
     // activeSectionTab이 Business일 경우 해당하는 검색 쿼리를 위해 Business Day로 값을 재할당
     activeSectionTab === 'Business' ? 'Business Day' : activeSectionTab,
@@ -38,7 +34,6 @@ function ArticleList() {
 
   if (isFetchLoading && articleList.length === 0)
     return <LoadingMessage type={'유용한'} />;
-  if (fetchError && articleList.length === 0) return <ErrorMessage />;
   if (articleList.length === 0) return null;
 
   return (
@@ -72,7 +67,6 @@ function ArticleList() {
         </ResponsiveMasonry>
         <ViewMoreButton
           isFetchLoading={isFetchLoading}
-          fetchError={fetchError}
           setClickCount={setClickCount}
         />
       </div>

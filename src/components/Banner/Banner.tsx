@@ -1,7 +1,9 @@
 import { useRef, useEffect } from 'react';
 import { useShallow } from 'zustand/react/shallow';
+import { ErrorBoundary } from 'react-error-boundary';
 import { useTheme, css } from '@emotion/react';
 import useScrollStore from '@stores/useScrollStore';
+import { ApiErrorFallback } from '@components/common';
 import { BannerHeader, BannerArticle } from '@components/Banner';
 
 function Banner() {
@@ -46,7 +48,11 @@ function Banner() {
             ${theme.color.shadow.default};
         `}
       >
-        <BannerArticle />
+        <ErrorBoundary
+          fallbackRender={(props) => <ApiErrorFallback {...props} />}
+        >
+          <BannerArticle />
+        </ErrorBoundary>
       </div>
     </section>
   );

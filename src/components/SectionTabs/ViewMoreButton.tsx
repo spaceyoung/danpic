@@ -1,17 +1,15 @@
 import React from 'react';
 import { useTheme, css } from '@emotion/react';
 import { MdOutlineAddCircleOutline } from 'react-icons/md';
-import { LoadingMessage, ErrorMessage } from '@components/common';
+import { LoadingMessage } from '@components/common';
 
 interface ViewMoreButtonProps {
   isFetchLoading: boolean;
-  fetchError: string;
   setClickCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 function ViewMoreButton({
   isFetchLoading,
-  fetchError,
   setClickCount,
 }: ViewMoreButtonProps) {
   const theme = useTheme();
@@ -21,7 +19,6 @@ function ViewMoreButton({
   };
 
   if (isFetchLoading) return <LoadingMessage type={'유용한'} />;
-  if (fetchError) return <ErrorMessage />;
 
   return (
     <button

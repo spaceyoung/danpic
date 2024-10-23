@@ -1,5 +1,7 @@
-import { SectionTabList, ArticleList } from '@components/SectionTabs';
+import { ErrorBoundary } from 'react-error-boundary';
 import { css } from '@emotion/react';
+import { SectionTabList, ArticleList } from '@components/SectionTabs';
+import { ApiErrorFallback } from '@components/common';
 
 function SectionTabs() {
   return (
@@ -11,7 +13,11 @@ function SectionTabs() {
       `}
     >
       <SectionTabList />
-      <ArticleList />
+      <ErrorBoundary
+        fallbackRender={(props) => <ApiErrorFallback {...props} />}
+      >
+        <ArticleList />
+      </ErrorBoundary>
     </div>
   );
 }
