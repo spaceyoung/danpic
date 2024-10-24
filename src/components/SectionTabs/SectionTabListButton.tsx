@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
-import useActiveTabStore from '@stores/useActiveTabStore';
+import useFetchStore from '@stores/useFetchStore';
 import { mediaQuery } from '@styles/breakpoints';
 
 interface SectionTabListButtonProps {
@@ -20,13 +20,13 @@ function SectionTabListButton({
   const scrollToFocusRef = useRef<HTMLButtonElement>(null);
 
   const theme = useTheme();
-  const [activeSectionTab, setActiveSectionTab] = useActiveTabStore(
-    useShallow((state) => [state.activeSectionTab, state.setActiveSectionTab])
+  const [section, setSection] = useFetchStore(
+    useShallow((state) => [state.section, state.setSection])
   );
 
   const handleSectionTabListButtonClick = (sectionTab: string) => {
     if (scrollToFocusRef.current && scrollStartClientX === scrollEndClientX) {
-      setActiveSectionTab(sectionTab);
+      setSection(sectionTab);
       scrollToFocusRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
@@ -42,7 +42,7 @@ function SectionTabListButton({
       css={css`
         height: 3rem;
         padding: 0 1.5rem;
-        color: ${sectionTab === activeSectionTab
+        color: ${sectionTab === section
           ? theme.color.emphasis.primary
           : theme.color.text.disabled};
         scroll-margin-left: 2rem;
@@ -58,7 +58,7 @@ function SectionTabListButton({
           position: absolute;
           left: 0;
           bottom: 0;
-          transform: scale(${sectionTab === activeSectionTab ? 1 : 0});
+          transform: scale(${sectionTab === section ? 1 : 0});
           transition: all 0.2s;
         }
         :hover {
