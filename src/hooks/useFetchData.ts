@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { useErrorBoundary } from 'react-error-boundary';
+import useFetchStore from '@stores/useFetchStore';
 import { axiosNYT } from '@apis/axios';
 
 const useFetchData = (
@@ -9,7 +11,10 @@ const useFetchData = (
   deps: [string, number] | [] = []
 ) => {
   const [isFetchLoading, setIsFetchLoading] = useState<boolean>(false);
-  const [fetchedData, setFetchedData] = useState<any>([]);
+
+  const [setArticle, setArticleList] = useFetchStore(
+    useShallow((state) => [state.setArticle, state.setArticleList])
+  );
 
   const { showBoundary } = useErrorBoundary();
 
@@ -28,7 +33,8 @@ const useFetchData = (
       const response = await axiosNYT.get(
         `${requestURL}?${section ? searchParamsString : ''}`
       );
-      setFetchedData(fetchedData.concat(response));
+      if (section) setArticleList(response);
+      else setArticle(response);
     } catch (error) {
       console.log(`기사 조회 중 오류 발생 | ${error}`);
       showBoundary(error);
@@ -40,7 +46,7 @@ const useFetchData = (
     fetchData();
   }, [fetchData]);
 
-  return { isFetchLoading, fetchedData };
+  return { isFetchLoading };
 };
 
 export default useFetchData;

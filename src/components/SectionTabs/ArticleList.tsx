@@ -3,6 +3,7 @@ import { useShallow } from 'zustand/react/shallow';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { css } from '@emotion/react';
 import useActiveTabStore from '@stores/useActiveTabStore';
+import useFetchStore from '@stores/useFetchStore';
 import useFetchData from '@hooks/useFetchData';
 import { NYT_REQUEST_URL } from '@constants/api';
 import { LoadingMessage } from '@components/common';
@@ -14,8 +15,11 @@ function ArticleList() {
   const [activeSectionTab] = useActiveTabStore(
     useShallow((state) => [state.activeSectionTab])
   );
+  const [articleList] = useFetchStore(
+    useShallow((state) => [state.articleList])
+  );
 
-  const { isFetchLoading, fetchedData: articleList } = useFetchData(
+  const { isFetchLoading } = useFetchData(
     NYT_REQUEST_URL.SEARCH,
     // activeSectionTab이 Business일 경우 해당하는 검색 쿼리를 위해 Business Day로 값을 재할당
     activeSectionTab === 'Business' ? 'Business Day' : activeSectionTab,

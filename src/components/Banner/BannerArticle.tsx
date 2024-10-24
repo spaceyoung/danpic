@@ -1,4 +1,6 @@
+import { useShallow } from 'zustand/react/shallow';
 import { useTheme, css } from '@emotion/react';
+import useFetchStore from '@stores/useFetchStore';
 import useFetchData from '@hooks/useFetchData';
 import useTranslate from '@hooks/useTranslate';
 import { NYT_REQUEST_URL } from '@constants/api';
@@ -10,11 +12,11 @@ import {
 } from '@components/common';
 
 function BannerArticle() {
+  const [article] = useFetchStore(useShallow((state) => [state.article]));
+
   const theme = useTheme();
 
-  const { isFetchLoading, fetchedData: article } = useFetchData(
-    NYT_REQUEST_URL.TOP_STORIES
-  );
+  const { isFetchLoading } = useFetchData(NYT_REQUEST_URL.TOP_STORIES);
 
   const {
     isTranslated,
