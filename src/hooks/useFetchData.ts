@@ -19,7 +19,8 @@ const useFetchData = (
   const { showBoundary } = useErrorBoundary();
 
   const searchParams = {
-    fq: `section_name:("${section}")`,
+    // section이 Business일 경우 해당하는 검색 쿼리를 위해 Business Day로 값을 재할당
+    fq: `section_name:("${section === 'Business' ? 'Business Day' : section}")`,
     page: `${pageNumber}`,
     sort: 'newest',
   };
